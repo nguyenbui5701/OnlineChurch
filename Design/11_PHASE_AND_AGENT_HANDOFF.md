@@ -13,7 +13,8 @@
 | ID | Responsibility | Scope | Acceptance |
 |---|---|---|---|
 | TASK-001 | AI Code | standalone scaffold, test/build scripts, isolated config and `@onlinechurch/shared` | clean build/typecheck/unit tests; no pagoda runtime coupling |
-| TASK-002 | AI Visual then AI Code | original Catholic 9:16 assets, layered scene and sanctuary mask | licensed manifest, Owner image review and protected zone |
+| TASK-002 | AI Code (parallel to Visual Batch A) | offline PixiJS 9:16 renderer foundation with synthetic shapes, guarded geometry and static DEMO | safe empty/missing-art fallback, tests, localhost preview; NO production Catholic assets |
+| TASK-002B (later) | AI Visual then AI Code | integrate Owner-approved Batch A/B 2.5D artwork, accurate protected regions and votive stand | registered alpha layers, hash/license manifest, Owner content approval and actual camera-mask overlap tests |
 | TASK-003 | AI Code | ChurchEngine: entrance, seats, free prayer and virtual votive candles | stable actors, fair queue, no paid access |
 | TASK-004 | AI Code | TikTok connector adaptation, reconnect, gift-streak finalization | room/stale/duplicate/unknown-gift tests |
 | TASK-005 | AI Code | dashboard, neutral Vietnamese TTS, audio ownership, quiet/pause | correct name, fallback, moderation and operator UX |
@@ -36,6 +37,8 @@ Each AI task receives only its exact Task, required Design files and source path
 - [x] One active production LIVE at a time is the safe MVP operating assumption; [ ] simultaneous LIVE on the PC requires separate future hardware/audio acceptance.
 
 ## Follow-up after first PR (2026-11-17)
-- TASK-001: Developer PR #2 is open; code review posted; Owner final Windows/UAT checks and merge decision pending. SA must not remove task file yet.
+- TASK-001: Developer PR #2 **merged** 2026-11-17 and its active Task was closed in `15_TASK001_CLOSEOUT.md`.
 - Visual AI: Concept 03 is the chosen direction, not production art. Next deliver **Batch A** (true layered 1080×1920 registered architecture) and plan relocation of votive interaction as specified in `13_CONCEPT03_SA_VISUAL_REVIEW.md`; no source integration before the next Task/art sign-off.
 - Tests: Owner may run designated full verification instead of having AI Code repeat every command, but failures must return to Developer. See `14_OWNER_EXECUTED_TEST_POLICY.md`.
+
+- **After PR #2 and #3 merge:** TASK-002 is restricted to renderer scaffolding and synthetic geometry. The later asset integration is separately authorized as TASK-002B after Visual Batch A/B review. No silent change of TASK-003 ChurchEngine scope.

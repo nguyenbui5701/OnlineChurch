@@ -2,7 +2,7 @@
 
 > **OWNER DECISION — 2026-11-17:** D-01 **APPROVED**: this standalone `nguyenbui5701/OnlineChurch` repository with independent runtime, selectively adapting OnlinePagoda technology. D-04 **APPROVED**: Catholic (Công giáo) identity. The repository has been initialized; Design migration is in the SA draft PR. Remaining interactions, visuals, rollout and full Design sign-off are pending. See `08_DECISION_LOG.md`.
 
-**Status:** G0 baseline complete; TASK-001 code in PR #2 under SA review; Owner-selected visual **Concept 03** accepted as art direction only; final assets and LIVE still gated | **Date:** 2026-11-17
+**Status:** TASK-001 merged and closed; Concept 03 Batch A underway with Visual AI; next technical task prepares the offline renderer foundation; final assets and LIVE remain gated | **Date:** 2026-11-17
 
 ## Purpose and boundary
 Design a separate interactive **Nhà thờ Online Công giáo** experience for TikTok LIVE on Windows, using `OnlinePagoda` as the **audited technical reference**, not as a theological or visual template. Never modify or restart the existing pagoda LIVE installation in order to test the church project.
@@ -35,6 +35,7 @@ Design a separate interactive **Nhà thờ Online Công giáo** experience for T
 12. [12_VISUAL_AGENT_STARTER.md](12_VISUAL_AGENT_STARTER.md) — concise prompt for separate visual/asset ChatGPT
 13. [13_CONCEPT03_SA_VISUAL_REVIEW.md](13_CONCEPT03_SA_VISUAL_REVIEW.md) — Concept 03 selected and correction/asset acceptance plan
 14. [14_OWNER_EXECUTED_TEST_POLICY.md](14_OWNER_EXECUTED_TEST_POLICY.md) — Owner/Developer/SA test delegation and evidence
+15. [15_TASK001_CLOSEOUT.md](15_TASK001_CLOSEOUT.md) — verified merge, evidence and task closeout
 
 ## Phase plan — approved sequencing; each implementation task needs separate review
 - **G0:** Standalone Catholic repo and recommended MVP 2.5D + side Marian image + free commands + neutral gifts/voice adopted as implementation baseline through Owner's 'tiếp tục' (2026-11-17). Precise final art and actual simultaneous LIVE setup are not pre-approved.
@@ -51,11 +52,11 @@ This is an independently authored interactive artwork, **not a real parish/churc
 ## Repository status
 - **Project of record:** `https://github.com/nguyenbui5701/OnlineChurch`, initialized with a README on 2026-11-17.
 - **This branch:** `sa/catholic-design-v1`, design migration from `OnlinePagoda@a5be3c8aebdc6c638807ef4b2d8b3fc0195804e1`; see `10_ONLINECHURCH_REPO_MIGRATION.md`.
-- **Current gate:** Design/Task PR #1 merged. TASK-001 implementation PR #2 is open and received SA code review COMMENT (same GitHub user cannot self-approve). Owner may run final local check and decide merge.
+- **Current gate:** Owner merged PR #2 (TASK-001) and #3 (Concept 03/Test policy). TASK-001 archived in Design/15; TASK-002 renderer foundation is being prepared in a new SA PR.
 - **Historical staging:** old `OnlinePagoda` draft PR #1 is superseded without merge into its production `main`.
 
 ## Next immediate handoff
-- [TASK-001 — isolated scaffold and offline DEMO](../Task/TASK-001-ISOLATED-SCAFFOLD-DEMO.md): implementation in [PR #2](https://github.com/nguyenbui5701/OnlineChurch/pull/2); not merged at this review. No production release.
+- TASK-001 code [PR #2](https://github.com/nguyenbui5701/OnlineChurch/pull/2) merged; completed task file removed from active `Task/`. Evidence and outcome in [15 — TASK-001 closeout](15_TASK001_CLOSEOUT.md). No production release.
 - Artist input: [12 — Visual AI starter](12_VISUAL_AGENT_STARTER.md). The 2.5D direction is the default, but final images and iconography remain subject to Owner asset acceptance.
 
 
