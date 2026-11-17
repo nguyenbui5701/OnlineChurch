@@ -1,0 +1,23 @@
+# OnlineChurch — generated/secret/local files (Design and Task remain tracked)
+node_modules/
+dist/
+coverage/
+test-results/
+artifacts/
+data/
+.cache/
+.vite/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+ReviewPR/
+.DS_Store
