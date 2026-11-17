@@ -36,3 +36,8 @@ Produce a variant **with** and **without** optional Marian side devotional image
 - Create visually rich but restrained **2.5D painterly layered** Catholic church scene, portrait 1080x1920; central crucifix visually dominant, warm soft natural illumination, pews and side Marian niche + separate votive candles.
 - Work in parallel on concept/presentation only. Exact image of Our Lady, altar details, original/license manifest and layered alpha quality require final Owner approval before app integration. Avoid treating a generated mockup as a certified Catholic artwork.
 
+
+## Owner-selected art direction — Concept 03 (2026-11-17)
+- The actual chosen concept is **Concept 03 Romanesque Golden-Ivory Nave**, not an older vector comparison `concept_C`. Do not spend tokens proposing three unrelated environments again.
+- Read `13_CONCEPT03_SA_VISUAL_REVIEW.md` and `visual/SA_CONCEPT03_HANDOFF.md`, then produce **Batch A** original, aligned and transparent 2.5D planes. Exact Christ/Mary art, rights, candle side position and polygons remain separate gates.
+- The supplied 1080×1920 upscaled preview is uniformly opaque and cannot be counted as an alpha layer. The 24-row `visual/manifest_CONCEPT03_PROPOSAL.csv` is future inventory, not completed assets.

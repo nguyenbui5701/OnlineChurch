@@ -34,3 +34,8 @@ Each AI task receives only its exact Task, required Design files and source path
 - [x] Marian side devotional corner adopted as concept; [ ] specific art approved before integration.
 - [x] Free enter/prayer/candle, neutral gifts and named TTS accepted as MVP baseline; [ ] exact texts and audio settings before release.
 - [x] One active production LIVE at a time is the safe MVP operating assumption; [ ] simultaneous LIVE on the PC requires separate future hardware/audio acceptance.
+
+## Follow-up after first PR (2026-11-17)
+- TASK-001: Developer PR #2 is open; code review posted; Owner final Windows/UAT checks and merge decision pending. SA must not remove task file yet.
+- Visual AI: Concept 03 is the chosen direction, not production art. Next deliver **Batch A** (true layered 1080×1920 registered architecture) and plan relocation of votive interaction as specified in `13_CONCEPT03_SA_VISUAL_REVIEW.md`; no source integration before the next Task/art sign-off.
+- Tests: Owner may run designated full verification instead of having AI Code repeat every command, but failures must return to Developer. See `14_OWNER_EXECUTED_TEST_POLICY.md`.

@@ -54,3 +54,8 @@
 ## 6. G0 handoff authorization and ordering (2026-11-17)
 The Owner's `tiếp tục` immediately after the proposed MVP concept is recorded as permission to proceed with the recommended **implementation baseline and TASK-001 preparation**. It is not a request for the SA to merge a PR, assign a live credential, operate in production or approve specific generated artwork. The Developer begins TASK-001 only when the Design/Task branch is merged by the Owner (or the Owner explicitly authorizes that specific branch as their base). No code should be implemented on a draft Design PR.
 
+
+## 7. Owner-executed checks (decision 2026-11-17)
+To save AI Code tool time, the Owner **may run designated Windows verification commands** and paste only terminal PASS summaries or failing command + concise log tail. AI Code remains responsible for implementing code, targeted tests while fixing it, writing reproducible commands, and addressing any Owner-reported failure. **A test is PASS only if executed by a clearly identified person/environment with exit code or adequate log; otherwise NOT RUN.**
+SA independently reviews the diff and test evidence. Source review != an executed Windows test. Do not skip security isolation checks, required smoke tests or content/sacred-area gates to optimize tokens. Assign long regression/soak/visual- Studio/UAT checks to Owner when the Task allows it. Detailed matrix: `14_OWNER_EXECUTED_TEST_POLICY.md`.
+When the connected GitHub account is the PR author, GitHub forbids self-APPROVE: SA submits a COMMENT with `SA_ACCEPTED_ON_DIFF` or requests changes if needed; never claim this is an official GitHub APPROVE. The Owner alone decides merge.
