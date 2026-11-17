@@ -1,4 +1,126 @@
-# OnlineChurch TASK-001 — offline DEMO
+# OnlineChurch development — TASK-002 renderer foundation
+
+Current branch: `feature/TASK-002-offline-renderer-foundation`.
+Baseline: `5618bc5741f04920990a54d5df97f4fa53cc4e19` (merged TASK-002 PR #4, including TASK-001 PR #2 and Design PR #3).
+Implementation commit: `870f10f` (source + executable tests). Subsequent documentation-only commits record this unchanged implementation's evidence.
+TASK-001 notes below are historical evidence; this section is the current workflow.
+
+## What TASK-002 adds
+
+One offline loopback server, still `127.0.0.1:3100`, now serves a PixiJS 8.23.0 canvas at **http://127.0.0.1:3100/overlay/**. The existing root placeholder is preserved with a new overlay link. `/health` and `/api/demo/state` retain the exact fields and semantics of TASK-001, including revision 0 and empty actors/candles.
+
+The logical canvas is 1080×1920. Seven fixed slots establish painter-style depth: far nave/windows, static sanctuary placeholder, floor/distant pews, future visitors, foreground pew occluders, future FX, UI/disclosure. All drawing is original code using abstract arcs, rectangles and polygons. No supplied images, religious depictions, Concept 03 PNG/JPG, names, avatars, candles or gifts are loaded. There is no engine, action input, audio or LIVE ingress.
+
+The visitor and FX containers are **empty and non-renderable**. UI always identifies `DEMO / Offline`, `Không gian mô phỏng — không phải Thánh lễ hay bí tích`, and `MASKS NOT APPROVED — DEMO ONLY`. Guide visibility can be toggled; this does not change admission rules. Logical header y=0..150 and footer y=1770..1920 are reserved for disclosure. These are provisional layout bands, not tested LIVE Studio safe zones.
+
+## Build, run and Windows verification
+
+Stop your existing **OnlineChurch DEMO terminal** with Ctrl+C before `npm.cmd ci` in this checkout. Do not stop any other application. Build browser files before starting DEMO; source mode does not start a separate Vite server and does not watch/rebuild the overlay automatically.
+
+```powershell
+Set-Location D:\Vibecode\onlChurch
+git branch --show-current
+git rev-parse --short HEAD
+npm.cmd ci
+npm.cmd run typecheck
+npm.cmd test
+npm.cmd run build
+npm.cmd run demo:smoke
+npm.cmd run dev:demo
+```
+
+Expected branch: `feature/TASK-002-offline-renderer-foundation`. Commands must exit 0; current test count is **176**. Then open **http://127.0.0.1:3100/overlay/**. The built alternative is `node .\dist\server.mjs` after build. This remains offline DEMO. Use Ctrl+C only in its own terminal to stop it.
+
+Optional custom output (same setting for source-mode preview and smoke):
+
+```powershell
+$env:APP_BUILD_DIRECTORY = 'dist/uat'
+npm.cmd run build
+npm.cmd run demo:smoke
+npm.cmd run dev:demo
+# After stopping your DEMO:
+Remove-Item Env:APP_BUILD_DIRECTORY
+```
+
+A bundled server remembers its own validated output directory through build-time constants; relative runtime overrides resolve from the checkout, not the caller's current directory. The bundle is intentionally anchored to this checkout for isolation; moving the checkout/artifacts requires rebuilding. Port 3000 remains rejected, the default port remains 3100, and EADDRINUSE does not terminate the occupied listener.
+
+## TypeScript and dependency compatibility
+
+`strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, unused-code checks and checked-JS remain enabled for all first-party code in the unchanged root tsconfig. PixiJS declarations have a known local incompatibility: `AbstractBitmapFont.distanceField` is a required union including undefined while its implemented interface declares an optional property. The error was reproduced on 8.23.0 and 8.14.0; no installed package was patched.
+
+`npm.cmd run typecheck` now requires **both** sequential commands to succeed:
+
+1. `tsc --noEmit --skipLibCheck`: all project TS/JS is checked with the existing strict flags, including exact optional properties. Dependency declarations provide their types but their internal consistency is not checked in this pass.
+2. `tsc --noEmit --exactOptionalPropertyTypes false`: project and dependency declarations are checked, including library consistency, with only that additional exact-optional flag disabled. All `strict` checks remain enabled.
+
+This is an explicit dependency-typing compatibility exception, not a claim that PixiJS passes exact-optional declaration validation. No `@ts-ignore`, `any` facade, swallowed compiler exit, permanent global `skipLibCheck`, or source-wide relaxation was added. SA should review this documented tradeoff. Runtime validation remains independent. Production adds only PixiJS and its locked dependency tree; full versions/licenses are in `TECHNICAL_PROVENANCE.md`.
+
+## Geometry foundation and deny-by-default behavior
+
+`packages/shared/src/geometry.ts` is pure and has no PixiJS dependency. It provides points, simple polygons, occupied rectangles, synthetic region records, point classification, protected intersection, placement diagnostics and viewport transforms. Original command/event/snapshot contracts are unchanged apart from exporting the new geometry module.
+
+- Polygons must be simple, 3..64 vertices, finite and within 1080×1920. Duplicate vertices, sparse arrays, zero-area geometry, self-intersections and collinear corners are rejected conservatively. A repeated closing vertex is not accepted; the last edge is implicit.
+- Touching a protected edge/vertex counts as collision. A fixed **1e-6 logical-pixel** distance tolerance treats near-boundary floats conservatively. Invalid polygon input makes `polygonsIntersect` return true (unsafe); `pointInPolygon` reports `invalid`.
+- Bounds require positive width/height greater than the tolerance and must stay wholly on the logical canvas. Placement must lie strictly inside **one** allowed polygon, with no crossing of a concave boundary, and must not touch/intersect any protected polygon. Invalid/missing region records deny diagnostics too.
+- `SYNTHETIC_ZONES` in `apps/overlay/src/layout.ts` has `status: "SYNTHETIC_DEMO_ONLY"`. Coordinates were independently authored for debug shapes, **not copied from the Concept 03 planning overlay** and **not final sanctuary/Mary/crucifix masks**.
+- `diagnosePlacement` can report geometryAllowed=true for a synthetic diagnostic, but renderEligible is **always false**. `canRenderDynamic` unconditionally denies every kind, including visitors, candle/gift sprites, donor labels and FX. There is no runtime approved-mask loader or string/flag that unlocks it; a forged APPROVED record is not accepted. Final art, hashes, masks and admission require the separate reviewed TASK-002B.
+- `fitViewport` uses one uniform scale with centered letterboxing; transforms reject invalid dimensions/forged fits and out-of-canvas points. The actual canvas uses that logical transform and CSS 9:16 sizing, caps devicePixelRatio at 2, and renders on resize/guide changes instead of running a continuous animation ticker. Page hide destroys the owned app, scene, listeners and observer; BFCache restore mounts afresh. Context loss shows a visible message until a render succeeds again.
+
+## Static route and output security
+
+| URL | Generated file | Content type |
+| --- | --- | --- |
+| `/overlay/` | `dist/overlay/index.html` | text/html |
+| `/overlay/app.js` | `dist/overlay/app.js` | text/javascript |
+| `/overlay/app.css` | `dist/overlay/app.css` | text/css |
+| `/overlay/THIRD_PARTY_LICENSES.txt` | `dist/overlay/THIRD_PARTY_LICENSES.txt` | text/plain |
+
+`dist/server.mjs` is built but never exposed by HTTP. Only the exact URL map above is accepted: no directory listing, decoded pathname joining, query-based file selector, source map, repository file or development fallback. Raw/encoded traversal returns 404. The existing Host/Origin/GET-only protections also apply to the overlay. Missing/partial/unsafe artifacts return **503 build required**, while both JSON endpoints remain available.
+
+Build validates **all five output paths and every parent before its first write**, then revalidates each artifact before writing. Serving repeats directory/file validation on every request, uses a file handle with no-follow where supported, checks regular-file type, hardlink count and an 8 MB size limit. Symlinks/junctions, hardlinks, traversal, external outputs, ambiguous Windows paths and arbitrary artifact names fail closed. Generated HTML verifies its dependent assets exist and are safe before returning 200. Validation does not make the directory safe against a hostile local administrator racing filesystem mutations; the checkout/output directories must remain owner-controlled.
+
+No recursive cleanup. Rebuild replaces only the five known files. If manual removal is needed, stop only OnlineChurch first and remove only those exact generated files under the verified checkout's dist; preserve unrelated outputs, logs and other applications. Never follow a junction to clean a target or use a broad `git clean`/process kill.
+
+CSP permits local script and stylesheet resources, inline styles needed for canvas sizing, and denies network connections, images, fonts and workers. No CDN/fonts or media downloads are requested. PixiJS's `pixi.js/unsafe-eval` entry point installs **non-eval fallback implementations**; CSP does not enable unsafe-eval. This naming and behavior were verified in the installed source. Graphics/text extensions are explicitly registered; external extension/resource loading is unnecessary.
+
+## TASK-002 acceptance evidence by executor
+
+AI_CODE ran on Windows PowerShell with Node v24.16.0 / npm 11.13.0 on 2026-11-17 (Asia/Saigon). Exact terminal logs remain locally ignored in `dist/verification/task002/`. Actual final results:
+
+| Gate | Executor / evidence | Status |
+| --- | --- | --- |
+| B01 | AI_CODE: `npm.cmd run typecheck`, both strict passes above exited 0; dependency exception documented | PASS |
+| B02 | AI_CODE: `npm.cmd test`, **7 files / 176 tests passed**, including all original 107 cases | PASS |
+| B03 | AI_CODE: `npm.cmd run build`; server, HTML, JS, CSS and license notice all under this checkout's dist | PASS |
+| B04 | AI_CODE: `npm.cmd run demo:smoke`; exact health/state, four overlay routes MIME/body checks, forbidden paths 404, child exit 0 and port released | PASS |
+| B05 | AI_CODE: 58 geometry cases, boundary/thin overlap/containment/concavity/invalid data/transform/default-deny | PASS |
+| B06 | AI_CODE: 10 new overlay security cases plus 16 existing build tests; per-file hardlinks, parent junction, unsafe output, raw traversal, missing build and host/origin/method guards | PASS |
+| B07 | OWNER_WINDOWS: actual visible GPU canvas, disclosure and no console errors not yet reported | NOT RUN — blocks visual acceptance |
+| B08 | OWNER_WINDOWS: actual resize/aspect/high-DPI/guide-toggle/browser screenshot not yet reported | NOT RUN — blocks visual acceptance |
+| B09 | AI_CODE static scan: original primitives only; no runtime media/profile/TikTok/TTS/gift ingestion or external requests; SA review pending | AI_CODE PASS / SA NOT RUN |
+| B10 | AI_CODE allowlist/protected-file/generated-file checks; no OnlinePagoda writes/runtime control; SA review pending | AI_CODE PASS / SA NOT RUN |
+| B11 | OWNER_WINDOWS manual Ctrl+C/release for this task not yet reported; automated owned-child teardown passes | NOT RUN — blocks manual acceptance |
+| B12 | OWNER replied “ok, hãy tạo PR cho task 002 và note thông tin” after the implementation/UAT handoff on 2026-11-17 | PR AUTHORIZED — individual manual gate results not supplied |
+
+Full test output: `Test Files 7 passed (7)`, `Tests 176 passed (176)`, duration 5.05s. Build output sizes: server 769521 bytes, index 1156, JS 1054282, CSS 1353, license notices 10586. Sizes are evidence for this build, not a performance benchmark. Smoke port 54688 exited/released successfully. HTTP delivery and the Node Pixi scene-tree unit test **do not prove visible WebGL rendering**. No browser automation was attempted for TASK-002; Owner execution is assigned by the Task, and the earlier task's automated browser command was unavailable due execution policy.
+
+## Owner acknowledgment and manual UAT evidence
+
+On 2026-11-17 the Owner acknowledged the handoff with “ok” and explicitly requested TASK-002 PR creation. This authorizes push and PR creation for SA review; it is not independent evidence of each browser/resize/console/Ctrl+C test. B07, B08 and B11 retain their unverified status pending specific Owner results. Do not translate the acknowledgment into an AI-executed or fully itemized UAT PASS. The checklist remains available below for remaining evidence.
+
+1. Use the correct feature branch/head and commands above. Open `/` first and follow **Mở canvas DEMO 2.5D**, or open `/overlay/` directly. Do not judge an old TASK-001 server still running from another terminal.
+2. Confirm an actual canvas with warm abstract arches, static central placeholder, floor/pew rectangles, red protected-debug polygon and navigation/FX guides. No production scene/characters/candles should appear. The loading message should disappear; a WebGL error message means FAIL, not PASS.
+3. Confirm `DEMO / Offline`, the Vietnamese disclosure and `MASKS NOT APPROVED — DEMO ONLY` remain readable. Open F12 Console: report errors if any. No external requests should occur in Network; resources are local HTML/JS/CSS only.
+4. Resize the browser tall/narrow and wide/short; verify the 9:16 canvas scales uniformly without stretching or cutting off header/footer. At very short viewport heights the page may scroll instead of cropping. If available, try browser zoom / a different DPI monitor. Toggle **Đường hướng dẫn** off/on; disclosure remains and no actor/FX becomes enabled.
+5. Reload and navigate back/forward: one canvas, no duplicate drawings or repeated errors. A screenshot is useful evidence if you choose to provide one.
+6. Check `/health` and `/api/demo/state` still show DEMO and empty state. Stop only this OnlineChurch terminal with Ctrl+C, then confirm its port is released (or relaunch succeeds). Do not stop/restart OnlinePagoda to test this.
+7. Return branch/head, test totals (if run), browser PASS/FAIL, resize PASS/FAIL, Ctrl+C PASS/FAIL, or the failing command plus last 20–40 lines. Do not send credentials or full dependency logs.
+
+Owner has authorized push and one TASK-002 PR against main. Report results by actual executor and retain the unresolved manual evidence for SA review; no merge or deployment is authorized. Rollback is limited to stopping OnlineChurch and, when authorized, reverting only this implementation. The next visual dependency is **Owner-approved Visual Batch A/B → future TASK-002B**. TASK-003 actions, final sacred masks, artwork, audio, Studio capture, FPS benchmarks and LIVE remain separate work.
+
+---
+
+# Historical TASK-001 — offline DEMO
 
 Standalone TypeScript scaffold; baseline `f241a76774b5f786709d0915df01a5614af6603f`.
 Branch: `feature/TASK-001-isolated-scaffold-demo`.

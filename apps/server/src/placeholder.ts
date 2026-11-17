@@ -30,6 +30,6 @@ export const placeholderHtml = `<!doctype html>
   <p><strong>DEMO — Không gian mô phỏng, không phải Thánh lễ</strong></p>
   <div class="placeholder"><p>Khung xem trước 9:16<br>Chưa có cảnh, nhân vật hoặc nến.</p></div>
   <dl><dt>Kết nối LIVE</dt><dd>Không kết nối</dd><dt>Nhân vật / nến</dt><dd>0 / 0</dd></dl>
-  <nav aria-label="Kiểm tra DEMO"><a href="/health">Kiểm tra hoạt động</a><a href="/api/demo/state">Xem trạng thái</a></nav>
+  <nav aria-label="Kiểm tra DEMO"><a href="/overlay/">Mở canvas DEMO 2.5D</a><a href="/health">Kiểm tra hoạt động</a><a href="/api/demo/state">Xem trạng thái</a></nav>
   <footer>Đây là bản DEMO nền tảng. Hình ảnh và các hoạt động tương tác sẽ được bổ sung ở giai đoạn sau.</footer>
 </main></body></html>`;

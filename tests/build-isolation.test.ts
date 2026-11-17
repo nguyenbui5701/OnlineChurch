@@ -3,6 +3,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { lstat, mkdir, mkdtemp, readFile, readdir, rmdir, symlink, unlink, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { repositoryRoot, validateBuildDirectory } from '../scripts/build-path.mjs';
+import { GENERATED_FILES } from '../scripts/artifact-paths.mjs';
 
 // Only generated paths created by this suite are cleaned; no recursive delete.
 const files: string[] = [];
@@ -67,7 +68,8 @@ describe('build path and file isolation', () => {
     execFileSync(process.execPath, [resolve(repositoryRoot, 'scripts/build.mjs')], {
       cwd: directory, env: { ...process.env, APP_BUILD_DIRECTORY: directory }, windowsHide: true,
     });
-    files.push(join(directory, 'server.mjs'));
+    files.push(...GENERATED_FILES.map(name => join(directory, name)));
+    directories.push(join(directory, 'overlay'));
     expect(await readFile(sentinel, 'utf8')).toBe('owned test sentinel');
     expect(await readFile(join(directory, 'server.mjs'), 'utf8')).toContain('Copyright (c) 2025 Colin McDonnell');
   });

@@ -6,7 +6,7 @@
   "engines": { "node": ">=22.12" },
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --skipLibCheck && tsc --noEmit --exactOptionalPropertyTypes false",
     "test": "vitest run",
     "build": "node scripts/build.mjs",
     "dev:demo": "tsx apps/server/src/index.ts",

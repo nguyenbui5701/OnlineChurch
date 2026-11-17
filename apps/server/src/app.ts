@@ -3,6 +3,7 @@ import type { Server, ServerResponse } from 'node:http';
 import { createInitialSnapshot } from '@onlinechurch/shared';
 import { DEMO_HOST } from './config.js';
 import { placeholderHtml } from './placeholder.js';
+import { isOverlayRoute, serveOverlay } from './overlay-files.js';
 
 function json(response: ServerResponse, status: number, body: unknown): void {
   response.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -25,6 +26,10 @@ export function createDemoServer(): Server {
     if (request.method !== 'GET') {
       response.setHeader('Allow', 'GET');
       json(response, 405, { error: 'METHOD_NOT_ALLOWED' });
+      return;
+    }
+    if (isOverlayRoute(request.url)) {
+      void serveOverlay(request.url!, response);
       return;
     }
     switch (request.url) {
