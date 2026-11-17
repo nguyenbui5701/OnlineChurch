@@ -54,3 +54,6 @@ A milestone is COMPLETE only when acceptance criteria, security/content checks, 
 - Build/test output isolated to OnlineChurch, no writes to parent/sibling repos; `ReviewPR/`, `data/`, secrets and caches ignored.
 - Developer reports PASS/FAIL/NOT_RUN with exact commands. This gate does **not** claim real overlay FPS, TikTok reconnect, voice or LIVE Studio quality.
 
+
+## 7. Execution owner may differ from implementer
+With Owner's 2026-11-17 direction, each future Task explicitly names who performs each test: `AI_CODE`, `OWNER_WINDOWS`, `SA_STATIC` or `CI`. A PASS is supported by captured command, target SHA/environment, exit code/log, and executor. AI Code should run small targeted tests after changes; Owner may perform the full Windows build/smoke and physical capture/UAT, reporting concise evidence. On failure AI Code fixes the same PR and test is re-run. Production/LIVE and sanctuary safety approvals are NEVER waived for cost savings. See `14_OWNER_EXECUTED_TEST_POLICY.md`.

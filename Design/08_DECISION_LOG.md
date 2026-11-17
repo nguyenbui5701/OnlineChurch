@@ -18,10 +18,10 @@
 
 ## Design and repository state
 - Repo created: `https://github.com/nguyenbui5701/OnlineChurch`.
-- Design branch: `sa/catholic-design-v1`; draft PR: `https://github.com/nguyenbui5701/OnlineChurch/pull/1`.
+- Design PR #1 was merged; TASK-001 implementation PR #2 opened at `https://github.com/nguyenbui5701/OnlineChurch/pull/2` (not yet merged as of this review).
 - The former `https://github.com/nguyenbui5701/OnlinePagoda/pull/1` was closed, **not merged**, after migration. Pagoda `main` remained unchanged.
 - Source technical reference is pinned at `OnlinePagoda@ee55ee81e507135b805d116586f5814eed9a89a9`.
-- **First implementation scope:** `Task/TASK-001-ISOLATED-SCAFFOLD-DEMO.md` may be authored and reviewed now; AI Code starts after Owner merges design/task PR or explicitly approves working off that SA branch.
+- **Current implementation scope:** `Task/TASK-001-ISOLATED-SCAFFOLD-DEMO.md`. AI Code submitted PR #2; SA static review found no blocking issue, but did not run Owner-Windows checks independently.
 
 ## G0 acceptance checklist
 - [x] Catholic identity and standalone source repository approved.
@@ -30,7 +30,7 @@
 - [x] Operational default avoids simultaneous production LIVE; port 3100 remains configurable/unverified.
 - [ ] **Final** Marian depiction, Catholic phrase catalog, art provenance and copyright cleared for scene implementation (before TASK-002).
 - [ ] Tested Windows audio route, production concurrent behavior, actual capture and go-live (before TASK-006/007).
-- [ ] Owner merges Design/Task PR after review; this step must not be simulated by SA.
+- [x] Owner merged Design/Task PR #1 (2026-11-17), merge SHA `f241a76774b5f786709d0915df01a5614af6603f`.
 
 ## PR / Task lifecycle
 1. SA commits Design decisions and TASK-001 to this SA branch.
@@ -40,3 +40,7 @@
 5. Owner merges accepted code PR; SA archives outcome in Design and removes completed task only with confirmed merge and approved cleanup.
 
 For later major changes, create dated decision amendments; do not retroactively pretend initial generated art or runtime operations were approved.
+
+## New decisions — 2026-11-17
+- **D-11 / VISUAL:** Owner selected Concept 03 **Romanesque Golden-Ivory Nave** as art direction. SA accepts its architectural composition. Specific Jesus/Mary depictions, moved side candle interaction, alpha cutouts, protected polygons, rights and Studio overlay capture remain **ON HOLD for production**. See `13_CONCEPT03_SA_VISUAL_REVIEW.md`.
+- **D-12 / TEST DELEGATION:** Owner can execute full Windows checks and UAT to reduce Developer chat/tool cost; AI Code handles fixes and targeted tests; SA reviews code and submitted evidence. No invented PASS; see `14_OWNER_EXECUTED_TEST_POLICY.md`.
