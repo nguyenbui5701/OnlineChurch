@@ -4,7 +4,7 @@
 
 
 ## 1. Mandatory stages
-**Gate A — contract review:** 01–11 Design signed off, OnlineChurch repo provisioned, remaining Catholic visuals/interactions confirmed and creator art rights recorded.
+**Gate A — contract review:** G0 product baseline (Catholic + standalone + 2.5D/Marian concept + free interactions + one-active-LIVE operational rule) accepted for TASK-001. Actual final artwork, creator rights and LIVE operational plan are separate gates required before those features ship.
 **Gate B — isolated build:** on non-LIVE development copy, `npm.cmd ci`, `npm.cmd run typecheck`, `npm.cmd test`, `npm.cmd run build` with source and build directory logged. In a new repo, replace scripts only after implementation; commands from pagoda are a reference, not proof that church supports them today.
 **Gate C — demo:** no Internet/TikTok account; command fixture, queue and voice mute/fallback; no Buddhist text/assets in final church capture.
 **Gate D — adapter rehearsal:** mocked TikTok events, repeated combo, disconnected room, reconnect, duplicate event, long names; no double scoring or TTS wrong-user.
@@ -45,3 +45,12 @@ A milestone is COMPLETE only when acceptance criteria, security/content checks, 
 - T18: free prayer/candle interaction unaffected by enabling/disabling gifts; queue fairness under flood.
 - T19: final build contains no stale Buddhist labels, quẻ/nhang ritual, temple visual/audio assets or pagoda runtime import.
 - T20: Catholic UX wording, voice and imagery reviewed according to `09_CATHOLIC_CONTENT_AND_SAFEGUARDS.md`. Build PASS alone does not satisfy content approval.
+
+## Task-001 mandatory partial gate (offline only)
+- Node.js >=22.12 on Windows (using `npm.cmd` due PowerShell shell considerations); clean install, `npm.cmd run typecheck`, `npm.cmd test`, `npm.cmd run build`, `npm.cmd run demo:smoke` each produce actual logs.
+- DEMO must run with no TikTok account, connector package, credentials, gTTS, media files, Electron or external service; no network requests from fixtures.
+- Bind default server to loopback only, port 3100 configurable; fail safely if port busy, **never** kill or restart OnlinePagoda/port 3000. 
+- Contract fixtures must prove consistent event ID, room/session boundaries, command normalization and predictable snapshots; no pagoda-specific names or gifts/rituals.
+- Build/test output isolated to OnlineChurch, no writes to parent/sibling repos; `ReviewPR/`, `data/`, secrets and caches ignored.
+- Developer reports PASS/FAIL/NOT_RUN with exact commands. This gate does **not** claim real overlay FPS, TikTok reconnect, voice or LIVE Studio quality.
+

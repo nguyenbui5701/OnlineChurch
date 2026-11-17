@@ -20,7 +20,7 @@ Create original, cohesive 9:16 **Catholic** fictional church interior art for a 
 - Scene: "Original fictional Catholic nave, symmetrical view toward a respectful front crucifix, warm evening sun filtering through stained-glass windows, central aisle and wooden pews, peaceful illustration, portrait 9:16, 1080x1920 composition, no humans, no text, no logos, no watermark, no real-world church name, leave clear central aisle for animated characters".
 - Sprite: "Original friendly generic visitor character, simple modest everyday clothes, consistent 2.5D sprite design, isolated transparent background, front side back poses, subdued palette, no clergy garments, no text".
 - Layer: "Transparent decorative candle stand positioned to the side of a fictional church nave, respectful and non-liturgical, soft warm lighting, isolated on transparent background".
-- Catholic identity is approved, but **Marian side imagery remains optional**. Front crucifix is suitable. Never create a real named parish, priestly ceremony, fake Mass, sacramental items or gifts at the altar.
+- The 2.5D MVP concept includes **Marian side imagery**, but the individual depiction/file/rights are still subject to Owner visual acceptance. Front crucifix is suitable. Never create a real named parish, priestly ceremony, fake Mass, sacramental items or gifts at the altar.
 
 ## Handoff and quality checklist
 - Do not use full-width composite image as a substitute for transparent sprite assets.
@@ -31,3 +31,8 @@ Create original, cohesive 9:16 **Catholic** fictional church interior art for a 
 
 ## Catholic production handoff
 Produce a variant **with** and **without** optional Marian side devotional imagery for Owner decision; preserve a front **crucifix** and non-interactive sanctuary zone. Avoid sacred-area animations and clergy avatars. Before AI Code integration: log art license/attribution, provide mask geometry, get SA content review and Owner approval as specified in `09_CATHOLIC_CONTENT_AND_SAFEGUARDS.md`.
+
+## Accepted art-direction baseline
+- Create visually rich but restrained **2.5D painterly layered** Catholic church scene, portrait 1080x1920; central crucifix visually dominant, warm soft natural illumination, pews and side Marian niche + separate votive candles.
+- Work in parallel on concept/presentation only. Exact image of Our Lady, altar details, original/license manifest and layered alpha quality require final Owner approval before app integration. Avoid treating a generated mockup as a certified Catholic artwork.
+

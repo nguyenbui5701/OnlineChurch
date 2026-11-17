@@ -1,6 +1,6 @@
 # 09 — Catholic Content, Visual Language and Safeguards
 
-**Identity APPROVED:** Công giáo (Catholic), Owner decision 2026-11-17. Detailed visual selection and approved phrases remain DRAFT.
+**Identity APPROVED:** Công giáo (Catholic), Owner decision 2026-11-17. Warm 2.5D + side Marian *concept* accepted through Owner's continuation; exact asset depiction/license and final phrase bank remain separate approval gates.
 
 ## A. Authenticity and disclosure
 The app is an independent Catholic-themed **virtual devotional artwork** for TikTok LIVE, not a real parish, live Mass, priestly service, ecclesially endorsed ministry, or sacrament.
@@ -9,7 +9,7 @@ Source for the boundary between internet and sacraments: Pontifical Council for 
 
 ## B. Catholic scene and symbolic free actions
 - Architectural cues: **crucifix with Christ**, pews, stained glass, center aisle, reserved front altar/presbytery; all artwork must be original or properly licensed.
-- Optional **Marian side devotional image/statue** only after Owner explicitly approves it. Do not assume approved just because the Catholic identity is approved.
+- **Marian side devotional corner is included in the adopted 2.5D concept**, but its specific portrayal, artwork, filenames, license, position and final image still require explicit Owner approval prior to implementation.
 - Viewer characters are ordinary visitors who enter, stand, sit or pause/kneel quietly in a pew or side devotional area. No priest, Eucharistic ceremony or consecration animations.
 - `cầu nguyện` means a symbolic quiet visual; `thắp nến` lights a free **virtual votive candle** at a side stand; `amen` gives a simple acknowledgement. None promises a spiritual outcome.
 - Keep the central sanctuary a **protected non-interactive polygon/mask**. No path, floating name, gift effect, visual flame, avatar or camera gimmick may overlap the crucifix/altar/presbytery.
@@ -36,7 +36,7 @@ Reject claims such as "Bạn đã được tha tội", "Tặng quà để đư�
 Visual AI drafts original Catholic scene concepts **with/without Marian side shrine**; SA checks technical zones, iconography, source/rights; Owner selects and approves; AI Code integrates approved asset manifest; SA checks the full 9:16 TikTok LIVE Studio capture, including mobile text-safe zones. A qualified Catholic reviewer should assess any uncertain doctrinal/liturgical content.
 
 ## F. Unresolved
-- [ ] Visual 2D / 2.5D / 3D-looking style
-- [ ] Optional Marian artwork, depiction and location
+- [x] 2.5D layered painterly concept adopted for MVP
+- [x] Marian side devotional corner included in concept; [ ] **specific asset/depiction/location** awaiting Owner visual sign-off
 - [ ] Exact display/voice phrase bank
 - [ ] Seasonal Catholic imagery (P2 only, separately approved)

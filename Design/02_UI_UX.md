@@ -1,4 +1,4 @@
-# 02 — UI / UX (DRAFT)
+# 02 — UI / UX (MVP 2.5D BASELINE; ART PENDING FINAL REVIEW)
 
 > **OWNER DECISION — 2026-11-17:** D-01 **APPROVED**: this standalone `nguyenbui5701/OnlineChurch` repository with independent runtime, selectively adapting OnlinePagoda technology. D-04 **APPROVED**: Catholic (Công giáo) identity. The repository has been initialized; Design migration is in the SA draft PR. Remaining interactions, visuals, rollout and full Design sign-off are pending. See `08_DECISION_LOG.md`.
 
@@ -29,13 +29,13 @@ Recommended: center aisle clear (roughly x=450..630), pews in left/right banks; 
 
 ## B. Design system
 - Palette candidate: ivory #F5E9D4, dark walnut #36291F, gold #CBAA69, midnight blue #1C283C, glass jewel accents; ensure contrast.
-- Background: original fictional Catholic nave with a front crucifix, stained glass, pews and no real parish branding. Optional Marian side shrine requires a separate Owner decision.
+- Background: original fictional Catholic nave with a front crucifix, stained glass, pews and no real parish branding. A Marian side devotional area is included in the MVP concept. Its precise image/style and licensing require separate Owner review.
 - Typography: readable Vietnamese sans-serif for UI; restrained serif for title; fonts only with verified redistribution rights.
-- Default animation: subtle light rays, movement no faster than safe readability, no flash/strobe. Gift effects cannot cover cross > 1s.
+- Default animation: subtle light rays, movement no faster than safe readability, no flash/strobe. Gift effects must NEVER cover the crucifix, altar or other protected sacred imagery; any duration of overlap is a P0 failure.
 - Audio: ambient off by default during integration, no copyrighted hymns/choir tracks unless explicitly licensed. Independent sliders for SFX, ambience and voice.
 - **Catholic identity:** front crucifix (not generic empty cross), and no priest, Eucharistic reenactment or sacred-area gift effects.
 
-## C. Interactions (provisional)
+## C. Interactions (MVP behavior baseline)
 | Trigger | Visual | Text/audio |
 |---|---|---|
 | Enter / greeting | Visitor walks in, stands or takes pew | "Chào mừng bạn đến không gian suy niệm trực tuyến" |
@@ -58,3 +58,10 @@ The image agent produces: 1 background 1080x1920; separate transparent layers fo
 
 ## F. Catholic UI protected areas
 The front crucifix, altar and presbytery form a **protected scene zone**. No avatars, animated gifts, artificial fire, donor names, sound-triggered flashing or visitor path can enter it. Keep devotional activity in pews or a side reflection/candle area. Visually disclose "Không gian mô phỏng — không phải Thánh lễ" in an accessible location. Confirm final text placement by recording the actual TikTok LIVE Studio vertical preview.
+
+## G. MVP 2.5D locked concept / flexible art review
+- Use separate planar parallax layers (back architecture, front sanctuary, pews/aisle, side Marian niche, side votive stand, foreground/UI) instead of realtime 3D.
+- Art direction: warm ivory/walnut/gold, subdued stained-glass rays; Marian corner on side, visually lower emphasis than central crucifix. Final art, depictions, names and iconographic accuracy require explicit Owner visual approval.
+- Visitor path: bottom entrance -> aisle -> pews/side reflection -> exits; NEVER enter front sanctuary. All candle placement stays in side stand, independent of gifts.
+- Example technical screen coordinate bands are only design hints; final sacred mask and motion tests must be derived from approved actual artwork and validated via full LIVE Studio capture.
+

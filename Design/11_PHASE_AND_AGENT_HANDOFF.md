@@ -1,15 +1,15 @@
 # 11 — Phased Delivery and AI Agent Handoff (PLAN ONLY)
 
 **Approved:** Catholic theme, standalone `OnlineChurch` repository, vetted reuse from OnlinePagoda.
-**Pending:** full Design sign-off and exact content/operational options.
+**G0 baseline accepted for TASK-001** following Owner 'tiếp tục' 2026-11-17. Final artwork, later tasks and operating deployment require separate acceptance.
 
 ## G0 — Design gate (SA + Owner)
 - **COMPLETED 2026-11-17:** `OnlineChurch` initialized and GitHub connector access verified.
 - SA commits the Design snapshot on `sa/catholic-design-v1` and opens its draft PR for Owner review.
-- Owner confirms: visual style, optional Marian side imagery, free commands, gift FX, Vietnamese thanks, simultaneous Pagoda/Church operation, audio routing.
-- SA marks 08 Decision Log approved and commits. **Only after this gate does SA create Task files.**
+- Owner's continuation accepts the recommended 2.5D + Marian concept, free commands, neutral gifts and optional voice as a baseline. SA adopts **single active production LIVE** by default; actual audio/port and final art are deferred to relevant later acceptance gates.
+- **TASK-001 can now be created and reviewed.** Its Developer should only begin after PR #1 is merged or Owner authorizes the specific branch as the base.
 
-## Planned tasks (not yet authorized)
+## Phased tasks — TASK-001 prepared; later tasks not yet assigned
 | ID | Responsibility | Scope | Acceptance |
 |---|---|---|---|
 | TASK-001 | AI Code | standalone scaffold, test/build scripts, isolated config and `@onlinechurch/shared` | clean build/typecheck/unit tests; no pagoda runtime coupling |
@@ -30,7 +30,7 @@
 Each AI task receives only its exact Task, required Design files and source path allowlist. Developers report **deltas** rather than pasting entire codebases. SA reviews changed paths first, then context-sensitive dependencies, not all unrelated folders. Image AI works from a compact visual brief, not hundreds of previous chat messages. Preserve test evidence and report failures accurately.
 
 ## Unresolved user decisions
-- [ ] Choose 2D / 2.5D / 3D-looking style.
-- [ ] Marian side image/statue: yes/no.
-- [ ] Confirm proposed free enter/prayer/candle, neutral gifts and named TTS.
-- [ ] May both apps run simultaneously on same Windows PC, and how will audio/capture be handled?
+- [x] 2.5D layered art adopted as visual concept.
+- [x] Marian side devotional corner adopted as concept; [ ] specific art approved before integration.
+- [x] Free enter/prayer/candle, neutral gifts and named TTS accepted as MVP baseline; [ ] exact texts and audio settings before release.
+- [x] One active production LIVE at a time is the safe MVP operating assumption; [ ] simultaneous LIVE on the PC requires separate future hardware/audio acceptance.

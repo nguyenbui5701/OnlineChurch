@@ -2,7 +2,7 @@
 
 > **OWNER DECISION — 2026-11-17:** D-01 **APPROVED**: this standalone `nguyenbui5701/OnlineChurch` repository with independent runtime, selectively adapting OnlinePagoda technology. D-04 **APPROVED**: Catholic (Công giáo) identity. The repository has been initialized; Design migration is in the SA draft PR. Remaining interactions, visuals, rollout and full Design sign-off are pending. See `08_DECISION_LOG.md`.
 
-**Owner:** project owner | **SA:** ChatGPT | **Status:** proposal, not approved
+**Owner:** project owner | **SA:** ChatGPT | **Status:** G0 baseline adopted for TASK-001 (Owner continuation 2026-11-17); release/asset details require separate acceptance
 
 ## 1. Goal
 Create a dignified Vietnamese-language TikTok LIVE simulation of a **Catholic** church interior where visitors can enter, sit, express a prayer intention, light a **virtual decorative candle**, and receive visual acknowledgment. Retain the proven DEMO -> TikTok LIVE -> 9:16 capture workflow as a *technical* baseline, with a different user-facing identity, scripts, assets and logic.
@@ -13,7 +13,7 @@ Create a dignified Vietnamese-language TikTok LIVE simulation of a **Catholic** 
 - **Operator:** DEMO/live selection; username, connection status/retry, audio master and quiet mode, visual presets, bounded test buttons, moderation, telemetry, emergency scene pause and no-audio safe fallback.
 - **Visual/audio contributor:** delivers original or licensed approved art/audio with manifest; may not modify business logic.
 
-## 3. Candidate MVP features
+## 3. MVP features (adopted baseline; prioritized for phased implementation)
 | ID | Priority | Requirement | Observable acceptance |
 |---|---|---|---|
 | R-01 | P0 | 1080x1920 fictional Catholic-style church with front crucifix, pews, center aisle and stained glass | Catholic iconography approved; no Buddhist words, offerings, rituals or reused temple scene assets |
@@ -50,11 +50,20 @@ Real church service, confession, Mass/Eucharist, donation collection on behalf o
 - Accessibility: low-flash effects, legible text and mute/reduced-motion toggles; protect central imagery from clutter.
 
 ## 7. Acceptance gate
-No `Task/` creation before Owner approves `08_DECISION_LOG.md`. Aesthetic mockups and gifts are **illustrative proposals**, not commitments.
+G0 baseline sign-off recorded in `08_DECISION_LOG.md`, allowing **TASK-001 scaffold**. Every later task, final artwork, actual live credentials and release still require independent review/approval.
 
 ## Catholic-specific product constraints
 - The altar/presbytery/crucifix is a protected non-interactive zone. Visitors remain in pews, aisle or approved side devotional area.
 - A virtual votive candle and prayer reflection are free symbolic visual actions, never sacramental or sold in exchange for TikTok gifts.
-- Marian artwork is an **optional Catholic content choice still pending Owner approval**; do not treat it as already signed off.
+- Default MVP includes a respectful **Marian side devotional image** (not an altar replacement), as proposed and accepted by continuation. Choice of depiction/asset, specific identity, licensing and final imagery require Owner's separate visual approval.
 - Never auto-read private prayer petitions aloud or imply that gifts affect divine favor.
 - See `09_CATHOLIC_CONTENT_AND_SAFEGUARDS.md` for stricter acceptance checks.
+
+## MVP product baseline B1 (2026-11-17)
+- **Catholic, 2.5D painterly layered art** at 1080×1920: front crucifix, pews, stained glass and a **side Marian devotional area**, with non-interactive protected sanctuary.
+- **Free controls:** `vào nhà thờ`, `xin chỗ`, `cầu nguyện`, `thắp nến`, `bình an`, `amen` (diacritic-insensitive after normalization). None implies a real Mass/bí tích.
+- **Optional gifts:** neutral soft light/flowers and short thanks, with no purchase of prayers/candles/spiritual priority. Disable any noisy gift effect during quiet mode.
+- **Voice:** optional Vietnamese name-specific neutral thanks, with strict name filtering and single audio owner; not part of TASK-001.
+- **Operations:** Windows separate repo/process/port/data/cache/title; first release **offline DEMO**, no automatic LIVE. Concurrent live streams on one PC are **out of MVP scope pending hardware/audio rehearsal**; default operational plan runs only one active TikTok LIVE production connection at a time. Architecture must not prevent future concurrency.
+- **Approval distinction:** Owner's `tiếp tục` is accepted as consent to proceed with this proposed baseline, **not** as approval of individual Marian artwork, recorded voice, public go-live or concurrent production operation.
+

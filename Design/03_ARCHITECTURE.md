@@ -1,4 +1,4 @@
-# 03 — System Architecture and Separation (DRAFT)
+# 03 — System Architecture and Separation (MVP BASELINE APPROVED; IMPLEMENTATION BY TASK)
 
 > **OWNER DECISION — 2026-11-17:** D-01 **APPROVED**: this standalone `nguyenbui5701/OnlineChurch` repository with independent runtime, selectively adapting OnlinePagoda technology. D-04 **APPROVED**: Catholic (Công giáo) identity. The repository has been initialized; Design migration is in the SA draft PR. Remaining interactions, visuals, rollout and full Design sign-off are pending. See `08_DECISION_LOG.md`.
 
@@ -78,3 +78,9 @@ type ChurchAction = { id:string; actorKey:string; kind:ChurchIntent|"GIFT_FX"; s
 
 ## Catholic-specific scene responsibility
 A distinct `ChurchEngine` owns actors, pews, free prayer, virtual votive candles and gifts; an independent renderer enforces a protected sanctuary mask. Do not port the pagoda's `incense`, `fortune`, `lantern`, offerings, Buddhist effects and text, or entire `SceneEngine` logic. Port only connector, source-management, state synchronization, Windows capture and TTS *patterns* with contract tests. Detailed provenance and repo steps: `10_ONLINECHURCH_REPO_MIGRATION.md`.
+
+## G0 operational decision — isolation first
+- The initial **MVP operating mode** uses **one production TikTok LIVE receiver/stream at a time** on the target PC; simultaneous OnlineChurch and OnlinePagoda production LIVE is **not a tested or approved deployment mode**. Independent apps may be developed separately; future concurrency needs performance/audio and account isolation tests.
+- Every church process is isolated by ports (suggested default 3100, configurable), env/data paths, logs, browser/capture title and build outputs. Never share Windows process-control scripts that might kill Pagoda or overwrite files.
+- **TASK-001 must not include TikTok connector, gTTS, Electron LIVE Studio capture or actual church visuals**; build shared event/snapshot schemas, deterministic fixture-driven offline DEMO and tests only. Core domain interactions and real renderer belong to later tasks.
+

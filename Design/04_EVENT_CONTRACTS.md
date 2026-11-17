@@ -48,3 +48,7 @@ Duplicate packet, out-of-order gift progress/end, missing ID, stale room event, 
 - LIGHT_CANDLE: a **free** virtual votive candle at a side stand; gifts cannot alter count, priority, spiritual benefits or access.
 - AMEN: a short visual acknowledgment, not a sacramental response. No avatars or gifts in altar/presbytery.
 - Operator can mute/disable gestures independently if Catholic-content review flags an issue. See `09_CATHOLIC_CONTENT_AND_SAFEGUARDS.md`.
+
+## MVP interpretation confirmed at design gate
+The free intent vocabulary and optional gift/thanks semantics are the accepted design baseline for subsequent scoped tasks. `TASK-001` defines types and test fixtures only: no real TikTok ingress, gifting, gift-to-money logic, prayer animation or TTS. Do not infer real platform gift prices or use donated amounts in spiritual UX.
+

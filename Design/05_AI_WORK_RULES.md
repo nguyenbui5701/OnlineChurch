@@ -9,7 +9,7 @@
 - Primary writable scope: `Design/**` inside **OnlineChurch**; do not update the former OnlinePagoda staging branch. May amend `.gitignore` solely to allow Design/Task and exclude ReviewPR.
 - Reads source to analyze; writes requirements, UI, architectural decision records, interface design and acceptance gates.
 - Commits every coherent design change on named SA branch. Never edits implementation/source in an AI Code branch.
-- After Owner approves remaining G0 design, creates exactly scoped `Task/TASK-xxx-*.md` **in OnlineChurch** including read-first files, allowed paths, steps, acceptance, test evidence and rollback. Commits task and hands off to AI Code.
+- Once the G0 baseline is accepted, creates exactly scoped `Task/TASK-xxx-*.md` **in OnlineChurch** including read-first files, allowed paths, steps, acceptance, test evidence and rollback. Commits task and hands off to AI Code.
 - When AI Code opens PR, reviews diff and test evidence; if local checkout is available, checks out **separate** `ReviewPR/PR-<number>/` worktree/snapshot and never touches AI Code workspace.
 - Posts one formal GitHub PR review with summary, evidence, file/line issues and outcome: **APPROVE**, **COMMENT** or **REQUEST_CHANGES**. Never approves an untested change as verified.
 - **Reject path:** retain isolated checkout and original Task; add fix checklist to that same Task and commit; AI Code responds with new commit; re-review.
@@ -50,3 +50,7 @@
 - OnlinePagoda's `main`, production data/port 3000 and launch scripts are read-only for this project. Draft PR #1 is staging only, and must not be merged into pagoda `main` for Church implementation.
 - The implementation project of record is now `nguyenbui5701/OnlineChurch`; all future Task and AI-Code PRs belong there. Every ported source file has origin SHA, license/provenance and regression evidence.
 - Catholic iconography, prayer text and effects require content review as well as code tests. Provide Visual AI both 06 and 09 guides.
+
+## 6. G0 handoff authorization and ordering (2026-11-17)
+The Owner's `tiếp tục` immediately after the proposed MVP concept is recorded as permission to proceed with the recommended **implementation baseline and TASK-001 preparation**. It is not a request for the SA to merge a PR, assign a live credential, operate in production or approve specific generated artwork. The Developer begins TASK-001 only when the Design/Task branch is merged by the Owner (or the Owner explicitly authorizes that specific branch as their base). No code should be implemented on a draft Design PR.
+
