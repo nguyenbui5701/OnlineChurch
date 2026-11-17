@@ -1,4 +1,5 @@
 import { z } from 'zod';
+export * from './geometry.js';
 
 export const SCHEMA_VERSION = 1 as const;
 export const MAX_COMMAND_LENGTH = 80;
