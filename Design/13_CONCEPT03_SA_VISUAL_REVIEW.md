@@ -40,3 +40,6 @@
 - Free prayer/candle must be visibly available without gift; no spiritual advantage bought by gifts.
 
 **Change control:** This SA review does not create or change application source, merge a PR, or authorize production. The user-owned uploaded images remain in conversation unless explicitly transferred and reviewed for repository commit.
+
+## 2026-11-17 — GitHub review delivery decision
+Visual Agent's in-progress Batch A is to be delivered via `VisualReview/Concept03/Batch-A/` in branch `visual/concept03-batch-a-review`, with a Draft Visual PR and per-file manifest, not as individual images pasted into chat. Concept03 preview from the original chat is not automatically a production asset; it must be regenerated/validated. SA reviews repo-uploaded artifacts only when they exist and can be fetched/viewed. The review-branch images are NOT merged into `main` by default. See `16_VISUAL_REVIEW_REPO_WORKFLOW.md`.

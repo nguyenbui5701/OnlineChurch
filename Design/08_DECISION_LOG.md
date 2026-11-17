@@ -48,3 +48,6 @@ For later major changes, create dated decision amendments; do not retroactively 
 ## D-13 — Concurrent visual and development workflow
 - Owner reported Visual AI is actively producing **Concept 03 Batch A**; actual Batch A assets **not submitted/reviewed** as of this decision.
 - SA may prepare a distinct offline **TASK-002 renderer foundation using generated geometric placeholders only**. No user-provided preview or unapproved Christ/Mary asset integration. After accepted Batch A and a later explicit Task/approval, separately integrate production assets and final masks. This is a safe subdivision of roadmap TASK-002, not an approval to publish.
+
+## D-14 — Visual review artifact delivery (Owner, 2026-11-17)
+Owner authorizes separate Visual AI to push images and manifest to a **GitHub review folder and branch**, so SA can review by PR link instead of requiring repeated chat uploads. Scope: `VisualReview/<Concept>/<Batch>/**` on `visual/<concept>-<batch>-review` branches only. Draft PRs are review containers **not to be merged into main**, until an explicit later Owner/SA asset-integration Task authorizes selected originals. Current destination `VisualReview/Concept03/Batch-A/`. Repeats for future batches. See `16_VISUAL_REVIEW_REPO_WORKFLOW.md`; tool-access failures must be reported and Owner may perform local push.

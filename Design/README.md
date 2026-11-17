@@ -36,6 +36,7 @@ Design a separate interactive **Nhà thờ Online Công giáo** experience for T
 13. [13_CONCEPT03_SA_VISUAL_REVIEW.md](13_CONCEPT03_SA_VISUAL_REVIEW.md) — Concept 03 selected and correction/asset acceptance plan
 14. [14_OWNER_EXECUTED_TEST_POLICY.md](14_OWNER_EXECUTED_TEST_POLICY.md) — Owner/Developer/SA test delegation and evidence
 15. [15_TASK001_CLOSEOUT.md](15_TASK001_CLOSEOUT.md) — verified merge, evidence and task closeout
+16. [16_VISUAL_REVIEW_REPO_WORKFLOW.md](16_VISUAL_REVIEW_REPO_WORKFLOW.md) — permanent GitHub VisualReview branch, artifact and PR workflow
 
 ## Phase plan — approved sequencing; each implementation task needs separate review
 - **G0:** Standalone Catholic repo and recommended MVP 2.5D + side Marian image + free commands + neutral gifts/voice adopted as implementation baseline through Owner's 'tiếp tục' (2026-11-17). Precise final art and actual simultaneous LIVE setup are not pre-approved.
@@ -64,3 +65,7 @@ This is an independently authored interactive artwork, **not a real parish/churc
 - Testing assignment: [Owner-executed QA policy](14_OWNER_EXECUTED_TEST_POLICY.md); no test may be silently skipped or declared PASS without real output.
 
 - New [TASK-002 Offline 2.5D Renderer Foundation](../Task/TASK-002-OFFLINE-2P5D-RENDERER-FOUNDATION.md) uses synthetic geometry only; Developer starts **after Owner merges this SA Task PR**. Real Concept 03 Batch A/B will be integrated later under a separate Task after approval.
+
+## Persistent Visual Asset Review workspace
+- Owner has authorized the Visual AI to **push review artifacts** to the `VisualReview/<Concept>/<Batch>/` folder **only on a dedicated `visual/<concept>-<batch>-review` branch**; it must not modify `main` or add unapproved art to application `assets/`.
+- See `Design/16_VISUAL_REVIEW_REPO_WORKFLOW.md` and `VisualReview/README.md`. For the ongoing assignment, use `VisualReview/Concept03/Batch-A/` on `visual/concept03-batch-a-review`. The SA can review a **Draft PR + raw GitHub preview links**, with no chat upload when the files are accessible. Later batches repeat this workflow.

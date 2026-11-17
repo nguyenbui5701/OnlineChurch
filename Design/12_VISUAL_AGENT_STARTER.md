@@ -27,3 +27,6 @@ Do not simulate Mass, Eucharist, confession, absolution, sacramental blessings, 
 
 ## Token-efficient handoff to SA
 Return a short comparison table and just the concept preview/mask/manifest. Do not dump the repo history. Wait for Owner/SA visual approval before full production assets.
+
+## Permanent artifact delivery route — no chat attachment required
+Owner has authorized review-only **GitHub branch pushes** to `VisualReview/`. For the current Batch A, use **`visual/concept03-batch-a-review`** and directory **`VisualReview/Concept03/Batch-A/`**. Upload `composite_preview.png`, `technical_overlay.png` (review-only), `layers/*.png` as real transparent RGBA, `manifest.csv`, and `handoff.md`. Add candidate `masks/*.json` only if explicitly marked `NOT_APPROVED`. Create a **Draft PR** and send its URL + HEAD SHA to SA/Owner; do not merge or alter app source. Keep all artwork separate from production assets. Repeat `visual/concept03-batch-b-review` + `VisualReview/Concept03/Batch-B/` etc. See `Design/16_VISUAL_REVIEW_REPO_WORKFLOW.md` for permanent rules. If tooling has no GitHub binary push support, ask Owner to push using the provided short PowerShell instructions; do not claim upload success without verification.
