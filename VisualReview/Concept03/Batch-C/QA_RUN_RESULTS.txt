@@ -1,0 +1,19 @@
+Command: python qa_animation.py
+Expected exit: 0
+Verified locally on revision R2 candidate. Structural QA only; see script stdout.
+
+idle_stand: 1 frames, duration_ms=1000, hold=STATIC_HOLD
+walk_right: 8 frames, duration_ms=760, hold=ANIMATED
+walk_left: 8 frames, duration_ms=760, hold=ANIMATED
+turn_right: 4 frames, duration_ms=720, hold=ANIMATED
+turn_left: 4 frames, duration_ms=720, hold=ANIMATED
+sit_down: 7 frames, duration_ms=1295, hold=ANIMATED
+seated: 1 frames, duration_ms=1000, hold=STATIC_HOLD
+stand_up: 7 frames, duration_ms=1295, hold=ANIMATED
+kneel_down: 6 frames, duration_ms=1140, hold=ANIMATED
+kneel_hold: 1 frames, duration_ms=1000, hold=STATIC_HOLD
+get_up: 6 frames, duration_ms=1140, hold=ANIMATED
+return: 8 frames, duration_ms=760, hold=ANIMATED
+leave: 8 frames, duration_ms=760, hold=ANIMATED
+
+Manual motion/foot-lock review: HOLD, not an independent SA test.
