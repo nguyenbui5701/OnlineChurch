@@ -1,48 +1,48 @@
-# OnlineChurch — Concept 03 / Visual Batch A SA Handoff
+# Visual Batch A — Revision R1 / SA Review PR #6
 
-**Date:** 2026-11-17  
-**Branch intended:** `visual/concept03-batch-a-review` · **Target:** `main` (Draft PR, DO NOT MERGE)  
-**Review status:** `SUBMITTED` candidate visuals, **NOT APPROVED**; files prepared locally, upload/push unverified until Owner pushes.
+**Branch:** `visual/concept03-batch-a-review`
+**PR:** https://github.com/nguyenbui5701/OnlineChurch/pull/6
+**Baseline reviewed SHA:** `0765c527893b29c2152d8aeea3355378c90e4e71`
+**Remote status:** original Batch A files verified in PR #6. **This R1 revision was prepared and tested locally; its push must be verified separately.**
+**Review verdict:** `SUBMITTED / REVISION_REQUIRED`, `PRODUCTION_HOLD`; **DO NOT MERGE**.
 
-## Delivered in this folder
-- `composite_preview.png` — 1080×1920 RGB preview, built **directly from the 9 registered RGBA planes**, not the old Concept03 flat preview. The stack can recreate it pixel-exactly.
-- `technical_overlay.png` — review-only zones/labels, NOT mask data for the application.
-- `layers/` — 9 RGBA planes (one intentionally fully opaque base, 8 meaningful-alpha cutouts). All are 1080×1920 with (0,0) origin and canvas-sized registration.
-- `masks/candidate_zones_NOT_APPROVED.json` — only provisional concept zone vertices; NOT ACCEPTED for runtime.
-- `manifest.csv` — all actual delivered PNGs and JSON with SHA256 of exact bytes, file size, alpha extrema and ratios, provenance, pivot and review status.
+## Work performed (only Batch A)
+- Rebuilt the right passage **inside existing `05_floor_and_side_lane.png`**, removing the prior elevated ledge and extending a floor-level tiled plane from the same source artwork. Kept the Romanesque golden-ivory composition and existing 9-plane structure. The revised candidate route goes from the central aisle around the **front of the right pews** to the right-side landing. No future votive stand or Marian asset has been added.
+- Cleaned color-fringed transparent edges of all non-base planes by mapping alpha below 35 to zero, alpha >= 225 to 255, and using nearest interior RGB to decontaminate the semi-transparent border. This addresses ghosted wood objects from previous 253-alpha interiors.
+- Exported updated `composite_preview.png`, `technical_overlay.png` plus 1080×1920 `*_review.webp` at <1,000,000 bytes each, intended for GitHub connector/preview review. Technical overlay is engineering-only.
+- Added dark/light matte QA crops at original 100% and enlarged 200% for each stained-glass window, sanctuary and both pew layers. `qa_composite.py` reports exact 9-plane compositing, SHA256, dimensions, alpha and candidate static image-space path overlap.
 
-## Visual design decisions
-- Romanesque Golden-Ivory architecture maintained: rounded stone vaults, warm sunlight, colored glass, center crucifix with Christ, foreground pews and aisle.
-- The left Marian nook is intentionally **empty** in Batch A; Marian depiction belongs to Batch B and requires separate content review.
-- No candle stand, flame, character or gift FX is included. The **right-side floor/pew composition** leaves a candidate landing near x=663..1014, y=1080..1272, connected from the central aisle **in the technical sketch only**.
-- The front sanctuary is a single still plane (`06_sanctuary_protected.png`) with crucifix and altar; Christ representation has **not** received Owner/SA religious sign-off. No AI Code integration authorized.
+## Reproducible QA
+From the Batch-A folder with Python, Pillow, NumPy, OpenCV installed:
+```bash
+python qa_composite.py
+```
+- Each of 9 `layers/*.png` is native output **1080×1920 PNG RGBA**, registered at `(0,0)` with top-left pivot. Layer order: lexical/numeric `00` through `08` using straight-alpha `PIL.Image.alpha_composite`. Background `00` is intentionally opaque. The other 8 layers have meaningful alpha.
+- `composite_preview.png` is the exact RGB save of the 9-plane composition. Pixel equality is checked after reopening the PNG.
+- Manifest SHA256 are file-byte hashes, verified against each listed asset.
+- Candidate centerline shown in overlay is checked with a **25-pixel line stroke** against the alpha>25 cutouts of sanctuary and both pews. This is **only a static 2D artwork check**; it does not certify a navigable avatar footprint or safe camera/parallax geometry.
 
-## Integration draft (not runtime authorization)
-- Coordinate system: 1080×1920; every PNG registration and pivot is **top-left (0,0)**; native/source generation canvas 941×1672 then scaled.
-- Draw `layers/*.png` in numeric filename order, default normal alpha blending. Do not independently transform without updating masks/occlusion.
-- Composite generated from these layers and rebuild tested pixel-exact: **True**. No animation or app code changes.
-- No external church photo, parish logo, copyrighted music or third-party image intentionally imported. AI-generated rights, depiction and any training/license concerns remain a required SA/Owner approval gate.
+### Measured evidence
+- `00_background_backdrop.png`: alpha 255..255; opaque 100.0% → **100.0%**; partial 0.0% → 0.0%
+- `01_bg_architecture.png`: alpha 0..255; opaque 0.064% → **56.2987%**; partial 58.229% → 0.3325%
+- `02_stained_glass_left.png`: alpha 0..255; opaque 0.021% → **1.412%**; partial 1.827% → 0.1668%
+- `03_stained_glass_right.png`: alpha 0..255; opaque 0.017% → **1.5957%**; partial 2.042% → 0.1124%
+- `04_stained_glass_central.png`: alpha 0..255; opaque 1.178% → **1.2651%**; partial 0.27% → 0.1186%
+- `05_floor_and_side_lane.png`: alpha 0..255; opaque 0.02% → **41.1094%**; partial 39.493% → 0.274%
+- `06_sanctuary_protected.png`: alpha 0..255; opaque 0.063% → **11.0365%**; partial 11.224% → 0.0915%
+- `07_pews_left_occluder.png`: alpha 0..255; opaque 0.035% → **10.2528%**; partial 11.219% → 0.5621%
+- `08_pews_right_occluder.png`: alpha 0..255; opaque 0.01% → **4.5706%**; partial 5.025% → 0.1915%
+- `composite_preview_review.webp`: 202780 bytes / 1080×1920 (under 1 MiB).
+- `technical_overlay_review.webp`: 198760 bytes / 1080×1920 (under 1 MiB).
 
-## Mechanical QA (performed)
-- All images valid PNG, 1080×1920.
-- Pixel-exact visual composite from the exported layers: **PASS**.
-- SHA256 and PNG alpha statistics recorded in manifest. Breakdown:
-- `00_background_backdrop.png`: alpha 255..255; 0% alpha = 0.00%, 255 = 100.00%
-- `01_bg_architecture.png`: alpha 0..255; 0% alpha = 41.71%, 255 = 0.06%
-- `02_stained_glass_left.png`: alpha 0..255; 0% alpha = 98.15%, 255 = 0.02%
-- `03_stained_glass_right.png`: alpha 0..255; 0% alpha = 97.94%, 255 = 0.02%
-- `04_stained_glass_central.png`: alpha 0..255; 0% alpha = 98.55%, 255 = 1.18%
-- `05_floor_and_side_lane.png`: alpha 0..255; 0% alpha = 60.49%, 255 = 0.02%
-- `06_sanctuary_protected.png`: alpha 0..255; 0% alpha = 88.71%, 255 = 0.06%
-- `07_pews_left_occluder.png`: alpha 0..255; 0% alpha = 88.75%, 255 = 0.03%
-- `08_pews_right_occluder.png`: alpha 0..255; 0% alpha = 94.96%, 255 = 0.01%
+## Remaining review/approval gates
+1. **OWNER_CONTENT_APPROVAL_HOLD:** Crucifix with figure of Christ and sanctuary/altar portrayal not religiously approved. Empty Marian niche intentionally kept for future Batch B; no Marian art included here.
+2. **CANDIDATE_NOT_APPROVED:** `masks/candidate_zones_NOT_APPROVED.json` and drawn route are visual proposals only; never import into application. Actor radius, footfall paths, collisions after parallax/camera transforms and any TikTok LIVE Studio overlay require later actual verification.
+3. **ART REVIEW NEEDED:** The right-floor extension is a digitally reprojected texture from the same existing image, not a new 3D survey. At high zoom some patterned floor transitions, stained-glass edge coloration and perspective cues may require further artist revisions. Dark/light matte crops are evidence, not automatic artistic acceptance.
+4. **LICENSE/RIGHTS HOLD:** Scene source is AI-generated and digitally edited. No stock church photographs or real parish trademark knowingly added. AI media rights/source and Catholic iconography require explicit Owner/SA clearance before runtime use.
+5. **TASK-002B remains blocked** pending separate Owner/SA authorization; TASK-002 synthetic renderer is independent. No application source, Design, Task, other batch or `main` edited.
 
-## Open blockers / SA review requests
-1. **Religious iconography:** exact Christ crucifix depiction and altar design unapproved. Do not treat concept approval as image approval; Marian depiction not delivered.
-2. **Composition/art defects:** perspective is painterly and the generated sanctuary uses a double depth arch. Side-floor is **slightly raised**, and the new lane's transition plus right pew occlusion needs redraw/visual review before actor path claims. The extracted center stained-glass crop may show edge mismatches/soft halos. Revisit if pixel-perfect production is required.
-3. **Geometry not final:** candidate `protected_sanctuary` and `reserved_marian_no_art` zones are approximate; no deterministic collision tests, camera/parallax transform QA, animated gift exclusion or LIVE Studio capture run. Do not load JSON in runtime.
-4. **Source resolution:** generated source planes 941×1672 resampled to 1080×1920; final pixel-density quality needs inspection, especially stained glass, altar and pew edges.
-5. **UI safe areas:** top y=0..150 and bottom y=1770..1920 shown on technical overlay, but Studio/mobile overlays still unmeasured. No baked UI text in preview.
-6. **Repository upload:** binary Git push via current environment unavailable; Owner must use supplied ZIP/commands. No PR/head SHA can be claimed until remote verified.
-
-**Next decision needed from SA/Owner:** accept/revise Batch A art direction and geometry only. Batch B, C, D and TASK-002B integration remain blocked pending explicit authorization. Do not merge the visual Draft PR.
+## Submission instructions
+- Update **the existing Draft PR #6** through its existing `visual/concept03-batch-a-review` branch, without force push and **without merging**.
+- After push, obtain remote new HEAD SHA and ask SA to review `composite_preview_review.webp`, `technical_overlay_review.webp`, `qa/` crops, manifest and `qa_composite.py`.
+- This handoff describes the prior PR #6 as uploaded/verified, **not this R1 commit until the new push is confirmed**.
