@@ -30,8 +30,9 @@ Design a separate interactive **Nhà thờ Online Công giáo** experience for T
 7. [07_TEST_RELEASE_GATES.md](07_TEST_RELEASE_GATES.md) — acceptance and LIVE safety
 8. [08_DECISION_LOG.md](08_DECISION_LOG.md) — approved decisions and open sign-offs
 9. [09_CATHOLIC_CONTENT_AND_SAFEGUARDS.md](09_CATHOLIC_CONTENT_AND_SAFEGUARDS.md) — Catholic content, imagery and devotional boundaries
-10. [10_ONLINECHURCH_REPO_MIGRATION.md](10_ONLINECHURCH_REPO_MIGRATION.md) — independent repository creation and technical porting
+10. [10_ONLINECHURCH_REPO_MIGRATION.md](10_ONLINECHURCH_REPO_MIGRATION.md) — repository migration record and technical reuse map
 11. [11_PHASE_AND_AGENT_HANDOFF.md](11_PHASE_AND_AGENT_HANDOFF.md) — phased tasks and agent handoff
+12. [12_VISUAL_AGENT_STARTER.md](12_VISUAL_AGENT_STARTER.md) — concise prompt for separate visual/asset ChatGPT
 
 ## Phase plan — NOT YET APPROVED
 - **G0:** Catholic identity and independent `OnlineChurch` repo **APPROVED 2026-11-17** and initialized. Still OPEN: visual style/Marian imagery, exact interaction list, machine deployment and final Design approval.
