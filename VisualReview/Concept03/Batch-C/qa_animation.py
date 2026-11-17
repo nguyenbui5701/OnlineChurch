@@ -1,30 +1,51 @@
 #!/usr/bin/env python3
+"""Reproducible Batch C R2 structural inspection; no physical gait/IK claim."""
 from pathlib import Path
 from PIL import Image
-import csv, hashlib, json
-ROOT=Path(__file__).resolve().parent
-rows=list(csv.DictReader((ROOT/'animation_manifest.csv').open(encoding='utf-8')))
-assert rows
-for row in rows:
-    p=ROOT/row['frame_file']; im=Image.open(p)
+from collections import defaultdict
+import hashlib, csv, json, numpy as np
+R=Path(__file__).resolve().parent
+data=list(csv.DictReader((R/'animation_manifest.csv').open(encoding='utf-8')))
+assert data
+man=json.loads((R/'atlas_manifest.json').read_text(encoding='utf-8'))
+groups=defaultdict(list)
+for row in data:
+    p=R/row['frame_file'];im=Image.open(p)
     assert im.size==(256,384) and im.mode=='RGBA',p
-    lo,hi=im.getchannel('A').getextrema()
-    assert lo==0 and hi==255,(p,(lo,hi))
+    a=np.array(im.getchannel('A'))
+    assert a.min()==0 and a.max()==255,p
     assert int(row['pivot_x'])==128 and int(row['pivot_y'])==347
     assert int(row['duration_ms'])>0
-    import numpy as np
-    alpha=np.array(im.getchannel('A'))
-    assert np.where(alpha>180)[0].max()==347,(p,'contact baseline is not y=347')
-for name in sorted(set(r['animation'] for r in rows)):
-    group=[r for r in rows if r['animation']==name]
-    atlas=Image.open(ROOT/group[0]['atlas_file']).convert('RGBA')
-    assert atlas.size==(256*len(group),384)
+    y,x=np.where((a>180)&(np.indices(a.shape)[0]>=335))
+    assert len(y) and y.max()==int(row['support_foot_y']),p
+    assert 0<=int(row['support_foot_x'])<256,p
+    assert row['anchor_validity']=='DRAFT_NOT_IK'
+    groups[row['animation']].append(row)
+for name, group in groups.items():
+    spec=man['animations'][name]
+    atlas=Image.open(R/spec['atlas']).convert('RGBA')
+    assert spec['frame_count']==len(group) and atlas.size==(len(group)*256,384),name
+    hashes=[]
     for row in group:
-        box=tuple(map(int,(row['atlas_x'],row['atlas_y'],row['atlas_w'],row['atlas_h'])))
-        tile=atlas.crop((box[0],box[1],box[0]+box[2],box[1]+box[3]))
-        assert tile.tobytes()==Image.open(ROOT/row['frame_file']).convert('RGBA').tobytes(),row
-for row in csv.DictReader((ROOT/'manifest.csv').open(encoding='utf-8-sig')):
-    p=ROOT/row['relative_path']
+        frame=Image.open(R/row['frame_file']).convert('RGBA')
+        x=int(row['atlas_x'])
+        assert atlas.crop((x,0,x+256,384)).tobytes()==frame.tobytes(),row
+        hashes.append(hashlib.sha256(frame.tobytes()).hexdigest())
+    if spec['hold_type']=='STATIC_HOLD':assert len(group)==1,name
+    if name in ('walk_left','walk_right','return','leave'):
+        assert len(group)>=8 and len(set(hashes))==len(hashes),(name,'duplicate')
+    assert spec['duration_ms']==sum(int(r['duration_ms']) for r in group),name
+    print(f'{name}: {len(group)} frames, {len(set(hashes))} unique, {spec["duration_ms"]} ms')
+# Extracted person-only seated sprite must be clear in reference wood-pedestal region.
+s=np.array(Image.open(R/'frames/seated/00.png').convert('RGBA'))
+assert s[280:330,:146,3].max()==0,'Wood/pedestal color region remains opaque'
+assert Image.open(R/'frames/sit_down/06.png').convert('RGBA').tobytes()==Image.open(R/'frames/seated/00.png').convert('RGBA').tobytes()
+assert Image.open(R/'frames/stand_up/00.png').convert('RGBA').tobytes()==Image.open(R/'frames/seated/00.png').convert('RGBA').tobytes()
+count=0
+for row in csv.DictReader((R/'manifest.csv').open(encoding='utf-8-sig')):
+    p=R/row['relative_path']
     assert p.exists(),p
     assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256'],p
-print('PASS |',len(rows),'frames |',len(set(r['animation'] for r in rows)),'animations | atlas pixel-equality | SHA256 inventory | native 256x384 RGBA')
+    count+=1
+print(f'STRUCTURAL PASS: frames={len(data)} animations={len(groups)} inventory={count}')
+print('ART STILL HOLD: furniture semantics beyond sampled region; gait naturalness; physical foot lock; pose IK; runtime collision.')

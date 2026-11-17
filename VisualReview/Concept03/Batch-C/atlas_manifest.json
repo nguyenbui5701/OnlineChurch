@@ -1,24 +1,24 @@
 {
-  "version": "BatchC-R1",
-  "canvas": [
+  "version": "BatchC-R2",
+  "frame_canvas": [
     256,
     384
   ],
-  "source_sheet": "Original OpenAI ImageGen 4x4 contact art, generated 2026-11-17, transparent RGBA; poses cropped and cleaned for review",
   "scene_canvas": [
     1080,
     1920
   ],
-  "sprite_root_pivot": [
+  "display_pivot": [
     128,
     347
   ],
   "animations": {
     "idle_stand": {
       "atlas": "atlases/idle_stand.png",
-      "frame_count": 4,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 1,
+      "duration_ms": 1000,
+      "loop": true,
+      "hold_type": "STATIC_HOLD",
       "frames": [
         {
           "rectangle": [
@@ -27,44 +27,22 @@
             256,
             384
           ],
-          "duration_ms": 220
-        },
-        {
-          "rectangle": [
-            256,
-            0,
-            256,
-            384
+          "duration_ms": 1000,
+          "support_foot": [
+            139,
+            347
           ],
-          "duration_ms": 220
-        },
-        {
-          "rectangle": [
-            512,
-            0,
-            256,
-            384
-          ],
-          "duration_ms": 220
-        },
-        {
-          "rectangle": [
-            768,
-            0,
-            256,
-            384
-          ],
-          "duration_ms": 220
+          "phase": "STATIC_HOLD"
         }
       ],
-      "loop": true,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "walk_right": {
       "atlas": "atlases/walk_right.png",
-      "frame_count": 6,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 8,
+      "duration_ms": 760,
+      "loop": true,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -73,7 +51,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            154,
+            347
+          ],
+          "phase": "right_plant"
         },
         {
           "rectangle": [
@@ -82,7 +65,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            154,
+            347
+          ],
+          "phase": "right_support"
         },
         {
           "rectangle": [
@@ -91,7 +79,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            74,
+            347
+          ],
+          "phase": "right_toeoff"
         },
         {
           "rectangle": [
@@ -100,7 +93,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            149,
+            347
+          ],
+          "phase": "left_swing"
         },
         {
           "rectangle": [
@@ -109,7 +107,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            151,
+            347
+          ],
+          "phase": "left_plant"
         },
         {
           "rectangle": [
@@ -118,17 +121,50 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            151,
+            347
+          ],
+          "phase": "left_support"
+        },
+        {
+          "rectangle": [
+            1536,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            91,
+            347
+          ],
+          "phase": "left_toeoff"
+        },
+        {
+          "rectangle": [
+            1792,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            155,
+            347
+          ],
+          "phase": "right_swing"
         }
       ],
-      "loop": true,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "walk_left": {
       "atlas": "atlases/walk_left.png",
-      "frame_count": 6,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 8,
+      "duration_ms": 760,
+      "loop": true,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -137,7 +173,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            101,
+            347
+          ],
+          "phase": "right_plant"
         },
         {
           "rectangle": [
@@ -146,7 +187,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            101,
+            347
+          ],
+          "phase": "right_support"
         },
         {
           "rectangle": [
@@ -155,7 +201,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            181,
+            347
+          ],
+          "phase": "right_toeoff"
         },
         {
           "rectangle": [
@@ -164,7 +215,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            106,
+            347
+          ],
+          "phase": "left_swing"
         },
         {
           "rectangle": [
@@ -173,7 +229,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            104,
+            347
+          ],
+          "phase": "left_plant"
         },
         {
           "rectangle": [
@@ -182,17 +243,50 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            104,
+            347
+          ],
+          "phase": "left_support"
+        },
+        {
+          "rectangle": [
+            1536,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            164,
+            347
+          ],
+          "phase": "left_toeoff"
+        },
+        {
+          "rectangle": [
+            1792,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            100,
+            347
+          ],
+          "phase": "right_swing"
         }
       ],
-      "loop": true,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "turn_right": {
       "atlas": "atlases/turn_right.png",
       "frame_count": 4,
-      "frame_width": 256,
-      "frame_height": 384,
+      "duration_ms": 720,
+      "loop": false,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -201,7 +295,12 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            139,
+            347
+          ],
+          "phase": "POSE_00"
         },
         {
           "rectangle": [
@@ -210,7 +309,12 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            140,
+            347
+          ],
+          "phase": "POSE_01"
         },
         {
           "rectangle": [
@@ -219,7 +323,12 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            136,
+            347
+          ],
+          "phase": "POSE_02"
         },
         {
           "rectangle": [
@@ -228,17 +337,22 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            122,
+            347
+          ],
+          "phase": "POSE_03"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "turn_left": {
       "atlas": "atlases/turn_left.png",
       "frame_count": 4,
-      "frame_width": 256,
-      "frame_height": 384,
+      "duration_ms": 720,
+      "loop": false,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -247,7 +361,12 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            139,
+            347
+          ],
+          "phase": "POSE_00"
         },
         {
           "rectangle": [
@@ -256,7 +375,12 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            114,
+            347
+          ],
+          "phase": "POSE_01"
         },
         {
           "rectangle": [
@@ -265,7 +389,12 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            118,
+            347
+          ],
+          "phase": "POSE_02"
         },
         {
           "rectangle": [
@@ -274,17 +403,22 @@
             256,
             384
           ],
-          "duration_ms": 170
+          "duration_ms": 180,
+          "support_foot": [
+            122,
+            347
+          ],
+          "phase": "POSE_03"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "sit_down": {
       "atlas": "atlases/sit_down.png",
-      "frame_count": 5,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 7,
+      "duration_ms": 1295,
+      "loop": false,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -293,7 +427,12 @@
             256,
             384
           ],
-          "duration_ms": 230
+          "duration_ms": 185,
+          "support_foot": [
+            136,
+            347
+          ],
+          "phase": "POSE_00"
         },
         {
           "rectangle": [
@@ -302,7 +441,12 @@
             256,
             384
           ],
-          "duration_ms": 230
+          "duration_ms": 185,
+          "support_foot": [
+            142,
+            347
+          ],
+          "phase": "POSE_01"
         },
         {
           "rectangle": [
@@ -311,7 +455,12 @@
             256,
             384
           ],
-          "duration_ms": 230
+          "duration_ms": 185,
+          "support_foot": [
+            108,
+            347
+          ],
+          "phase": "POSE_02"
         },
         {
           "rectangle": [
@@ -320,7 +469,12 @@
             256,
             384
           ],
-          "duration_ms": 230
+          "duration_ms": 185,
+          "support_foot": [
+            135,
+            347
+          ],
+          "phase": "POSE_03"
         },
         {
           "rectangle": [
@@ -329,17 +483,50 @@
             256,
             384
           ],
-          "duration_ms": 230
+          "duration_ms": 185,
+          "support_foot": [
+            146,
+            347
+          ],
+          "phase": "POSE_04"
+        },
+        {
+          "rectangle": [
+            1280,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 185,
+          "support_foot": [
+            158,
+            347
+          ],
+          "phase": "POSE_05"
+        },
+        {
+          "rectangle": [
+            1536,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 185,
+          "support_foot": [
+            172,
+            347
+          ],
+          "phase": "POSE_06"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "seated": {
       "atlas": "atlases/seated.png",
-      "frame_count": 4,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 1,
+      "duration_ms": 1000,
+      "loop": true,
+      "hold_type": "STATIC_HOLD",
       "frames": [
         {
           "rectangle": [
@@ -348,44 +535,22 @@
             256,
             384
           ],
-          "duration_ms": 260
-        },
-        {
-          "rectangle": [
-            256,
-            0,
-            256,
-            384
+          "duration_ms": 1000,
+          "support_foot": [
+            172,
+            347
           ],
-          "duration_ms": 260
-        },
-        {
-          "rectangle": [
-            512,
-            0,
-            256,
-            384
-          ],
-          "duration_ms": 260
-        },
-        {
-          "rectangle": [
-            768,
-            0,
-            256,
-            384
-          ],
-          "duration_ms": 260
+          "phase": "STATIC_HOLD"
         }
       ],
-      "loop": true,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "stand_up": {
       "atlas": "atlases/stand_up.png",
-      "frame_count": 5,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 7,
+      "duration_ms": 1295,
+      "loop": false,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -394,7 +559,12 @@
             256,
             384
           ],
-          "duration_ms": 215
+          "duration_ms": 185,
+          "support_foot": [
+            172,
+            347
+          ],
+          "phase": "POSE_00"
         },
         {
           "rectangle": [
@@ -403,7 +573,12 @@
             256,
             384
           ],
-          "duration_ms": 215
+          "duration_ms": 185,
+          "support_foot": [
+            158,
+            347
+          ],
+          "phase": "POSE_01"
         },
         {
           "rectangle": [
@@ -412,7 +587,12 @@
             256,
             384
           ],
-          "duration_ms": 215
+          "duration_ms": 185,
+          "support_foot": [
+            146,
+            347
+          ],
+          "phase": "POSE_02"
         },
         {
           "rectangle": [
@@ -421,7 +601,12 @@
             256,
             384
           ],
-          "duration_ms": 215
+          "duration_ms": 185,
+          "support_foot": [
+            135,
+            347
+          ],
+          "phase": "POSE_03"
         },
         {
           "rectangle": [
@@ -430,17 +615,50 @@
             256,
             384
           ],
-          "duration_ms": 215
+          "duration_ms": 185,
+          "support_foot": [
+            108,
+            347
+          ],
+          "phase": "POSE_04"
+        },
+        {
+          "rectangle": [
+            1280,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 185,
+          "support_foot": [
+            142,
+            347
+          ],
+          "phase": "POSE_05"
+        },
+        {
+          "rectangle": [
+            1536,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 185,
+          "support_foot": [
+            136,
+            347
+          ],
+          "phase": "POSE_06"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "kneel_down": {
       "atlas": "atlases/kneel_down.png",
       "frame_count": 6,
-      "frame_width": 256,
-      "frame_height": 384,
+      "duration_ms": 1140,
+      "loop": false,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -449,7 +667,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            136,
+            347
+          ],
+          "phase": "POSE_00"
         },
         {
           "rectangle": [
@@ -458,7 +681,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            108,
+            347
+          ],
+          "phase": "POSE_01"
         },
         {
           "rectangle": [
@@ -467,7 +695,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            155,
+            347
+          ],
+          "phase": "POSE_02"
         },
         {
           "rectangle": [
@@ -476,7 +709,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            118,
+            347
+          ],
+          "phase": "POSE_03"
         },
         {
           "rectangle": [
@@ -485,7 +723,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            154,
+            347
+          ],
+          "phase": "POSE_04"
         },
         {
           "rectangle": [
@@ -494,17 +737,22 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            137,
+            347
+          ],
+          "phase": "POSE_05"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "kneel_hold": {
       "atlas": "atlases/kneel_hold.png",
-      "frame_count": 4,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 1,
+      "duration_ms": 1000,
+      "loop": true,
+      "hold_type": "STATIC_HOLD",
       "frames": [
         {
           "rectangle": [
@@ -513,44 +761,22 @@
             256,
             384
           ],
-          "duration_ms": 290
-        },
-        {
-          "rectangle": [
-            256,
-            0,
-            256,
-            384
+          "duration_ms": 1000,
+          "support_foot": [
+            137,
+            347
           ],
-          "duration_ms": 290
-        },
-        {
-          "rectangle": [
-            512,
-            0,
-            256,
-            384
-          ],
-          "duration_ms": 290
-        },
-        {
-          "rectangle": [
-            768,
-            0,
-            256,
-            384
-          ],
-          "duration_ms": 290
+          "phase": "STATIC_HOLD"
         }
       ],
-      "loop": true,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "get_up": {
       "atlas": "atlases/get_up.png",
       "frame_count": 6,
-      "frame_width": 256,
-      "frame_height": 384,
+      "duration_ms": 1140,
+      "loop": false,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -559,7 +785,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            137,
+            347
+          ],
+          "phase": "POSE_00"
         },
         {
           "rectangle": [
@@ -568,7 +799,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            154,
+            347
+          ],
+          "phase": "POSE_01"
         },
         {
           "rectangle": [
@@ -577,7 +813,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            118,
+            347
+          ],
+          "phase": "POSE_02"
         },
         {
           "rectangle": [
@@ -586,7 +827,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            155,
+            347
+          ],
+          "phase": "POSE_03"
         },
         {
           "rectangle": [
@@ -595,7 +841,12 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            108,
+            347
+          ],
+          "phase": "POSE_04"
         },
         {
           "rectangle": [
@@ -604,17 +855,22 @@
             256,
             384
           ],
-          "duration_ms": 220
+          "duration_ms": 190,
+          "support_foot": [
+            136,
+            347
+          ],
+          "phase": "POSE_05"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "return": {
       "atlas": "atlases/return.png",
-      "frame_count": 6,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 8,
+      "duration_ms": 760,
+      "loop": true,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -623,7 +879,12 @@
             256,
             384
           ],
-          "duration_ms": 150
+          "duration_ms": 95,
+          "support_foot": [
+            101,
+            347
+          ],
+          "phase": "right_plant"
         },
         {
           "rectangle": [
@@ -632,7 +893,12 @@
             256,
             384
           ],
-          "duration_ms": 150
+          "duration_ms": 95,
+          "support_foot": [
+            101,
+            347
+          ],
+          "phase": "right_support"
         },
         {
           "rectangle": [
@@ -641,7 +907,12 @@
             256,
             384
           ],
-          "duration_ms": 150
+          "duration_ms": 95,
+          "support_foot": [
+            181,
+            347
+          ],
+          "phase": "right_toeoff"
         },
         {
           "rectangle": [
@@ -650,7 +921,12 @@
             256,
             384
           ],
-          "duration_ms": 150
+          "duration_ms": 95,
+          "support_foot": [
+            106,
+            347
+          ],
+          "phase": "left_swing"
         },
         {
           "rectangle": [
@@ -659,7 +935,12 @@
             256,
             384
           ],
-          "duration_ms": 150
+          "duration_ms": 95,
+          "support_foot": [
+            104,
+            347
+          ],
+          "phase": "left_plant"
         },
         {
           "rectangle": [
@@ -668,17 +949,50 @@
             256,
             384
           ],
-          "duration_ms": 150
+          "duration_ms": 95,
+          "support_foot": [
+            104,
+            347
+          ],
+          "phase": "left_support"
+        },
+        {
+          "rectangle": [
+            1536,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            164,
+            347
+          ],
+          "phase": "left_toeoff"
+        },
+        {
+          "rectangle": [
+            1792,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            100,
+            347
+          ],
+          "phase": "right_swing"
         }
       ],
-      "loop": false,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     },
     "leave": {
       "atlas": "atlases/leave.png",
-      "frame_count": 6,
-      "frame_width": 256,
-      "frame_height": 384,
+      "frame_count": 8,
+      "duration_ms": 760,
+      "loop": true,
+      "hold_type": "ANIMATED",
       "frames": [
         {
           "rectangle": [
@@ -687,7 +1001,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            101,
+            347
+          ],
+          "phase": "right_plant"
         },
         {
           "rectangle": [
@@ -696,7 +1015,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            101,
+            347
+          ],
+          "phase": "right_support"
         },
         {
           "rectangle": [
@@ -705,7 +1029,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            181,
+            347
+          ],
+          "phase": "right_toeoff"
         },
         {
           "rectangle": [
@@ -714,7 +1043,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            106,
+            347
+          ],
+          "phase": "left_swing"
         },
         {
           "rectangle": [
@@ -723,7 +1057,12 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            104,
+            347
+          ],
+          "phase": "left_plant"
         },
         {
           "rectangle": [
@@ -732,11 +1071,43 @@
             256,
             384
           ],
-          "duration_ms": 115
+          "duration_ms": 95,
+          "support_foot": [
+            104,
+            347
+          ],
+          "phase": "left_support"
+        },
+        {
+          "rectangle": [
+            1536,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            164,
+            347
+          ],
+          "phase": "left_toeoff"
+        },
+        {
+          "rectangle": [
+            1792,
+            0,
+            256,
+            384
+          ],
+          "duration_ms": 95,
+          "support_foot": [
+            100,
+            347
+          ],
+          "phase": "right_swing"
         }
       ],
-      "loop": true,
-      "status": "DRAFT_REVIEW_ONLY"
+      "review_status": "REVISION_REQUIRED"
     }
   }
 }
