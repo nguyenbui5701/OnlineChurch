@@ -18,10 +18,10 @@
 
 ## Design and repository state
 - Repo created: `https://github.com/nguyenbui5701/OnlineChurch`.
-- Design PR #1 was merged; TASK-001 implementation PR #2 opened at `https://github.com/nguyenbui5701/OnlineChurch/pull/2` (not yet merged as of this review).
+- Design PR #1 was merged; **TASK-001 implementation PR #2 merged 2026-11-17** (`0b5df414acb45d0abe4b8ae3ae292b064a175187`). **Design PR #3 merged 2026-11-17** (`ce996084d3d47de28ba8f16de05d615dfac70899`).
 - The former `https://github.com/nguyenbui5701/OnlinePagoda/pull/1` was closed, **not merged**, after migration. Pagoda `main` remained unchanged.
 - Source technical reference is pinned at `OnlinePagoda@ee55ee81e507135b805d116586f5814eed9a89a9`.
-- **Current implementation scope:** `Task/TASK-001-ISOLATED-SCAFFOLD-DEMO.md`. AI Code submitted PR #2; SA static review found no blocking issue, but did not run Owner-Windows checks independently.
+- **Current status:** TASK-001 completed and removed from active Task/ after verified Owner merge. SA reviewed PR #2 with `COMMENT` (GitHub denied self-approval), no P0/P1 source blocker. Developer reports 107 tests PASS; independent Windows execution by SA was NOT RUN. Closeout: `15_TASK001_CLOSEOUT.md`. Next task will prepare offline visual renderer while Batch A assets remain under production HOLD.
 
 ## G0 acceptance checklist
 - [x] Catholic identity and standalone source repository approved.
@@ -44,3 +44,7 @@ For later major changes, create dated decision amendments; do not retroactively 
 ## New decisions — 2026-11-17
 - **D-11 / VISUAL:** Owner selected Concept 03 **Romanesque Golden-Ivory Nave** as art direction. SA accepts its architectural composition. Specific Jesus/Mary depictions, moved side candle interaction, alpha cutouts, protected polygons, rights and Studio overlay capture remain **ON HOLD for production**. See `13_CONCEPT03_SA_VISUAL_REVIEW.md`.
 - **D-12 / TEST DELEGATION:** Owner can execute full Windows checks and UAT to reduce Developer chat/tool cost; AI Code handles fixes and targeted tests; SA reviews code and submitted evidence. No invented PASS; see `14_OWNER_EXECUTED_TEST_POLICY.md`.
+
+## D-13 — Concurrent visual and development workflow
+- Owner reported Visual AI is actively producing **Concept 03 Batch A**; actual Batch A assets **not submitted/reviewed** as of this decision.
+- SA may prepare a distinct offline **TASK-002 renderer foundation using generated geometric placeholders only**. No user-provided preview or unapproved Christ/Mary asset integration. After accepted Batch A and a later explicit Task/approval, separately integrate production assets and final masks. This is a safe subdivision of roadmap TASK-002, not an approval to publish.
