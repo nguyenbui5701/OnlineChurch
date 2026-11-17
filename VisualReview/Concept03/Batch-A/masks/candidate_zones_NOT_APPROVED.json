@@ -1,0 +1,120 @@
+{
+  "type": "concept_only_candidate",
+  "status": "CANDIDATE_NOT_APPROVED",
+  "canvas": [
+    1080,
+    1920
+  ],
+  "note": "Revision R1 visual candidate; replaces raised ramp with contiguous level floor in compositing image. NOT runtime/physical geometry approval. Christ, altar, Mary zones remain Owner/SA content hold.",
+  "zones": {
+    "protected_sanctuary": [
+      [
+        235,
+        435
+      ],
+      [
+        817,
+        435
+      ],
+      [
+        809,
+        997
+      ],
+      [
+        236,
+        997
+      ]
+    ],
+    "reserved_marian_no_art": [
+      [
+        47,
+        552
+      ],
+      [
+        274,
+        552
+      ],
+      [
+        274,
+        984
+      ],
+      [
+        47,
+        984
+      ]
+    ],
+    "candidate_main_aisle": [
+      [
+        425,
+        1190
+      ],
+      [
+        615,
+        1190
+      ],
+      [
+        722,
+        1768
+      ],
+      [
+        337,
+        1768
+      ]
+    ],
+    "candidate_side_votive_lane_NO_CANDLE_YET": [
+      [
+        635,
+        1180
+      ],
+      [
+        1015,
+        1180
+      ],
+      [
+        1026,
+        1270
+      ],
+      [
+        640,
+        1270
+      ]
+    ]
+  },
+  "camera_transform_validated": false,
+  "actor_vs_polygon_tested": false,
+  "studio_capture_validated": false,
+  "candidate_route_visual_only": [
+    [
+      545,
+      1702
+    ],
+    [
+      540,
+      1500
+    ],
+    [
+      535,
+      1360
+    ],
+    [
+      540,
+      1270
+    ],
+    [
+      620,
+      1236
+    ],
+    [
+      748,
+      1204
+    ],
+    [
+      855,
+      1205
+    ],
+    [
+      943,
+      1203
+    ]
+  ]
+}
