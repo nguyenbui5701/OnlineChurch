@@ -105,7 +105,7 @@ Verified on 2026-11-17 (Asia/Saigon), Windows PowerShell, Node v24.16.0, npm 11.
 | Signal handlers | Owned child tests deliver Node SIGINT/SIGTERM events, verify exit 0 and released port; IPC shutdown and parent disconnect also pass | PASS |
 | Placeholder delivery | Built server `/` returned HTTP 200, disclosure present, CSP prevents external resources | PASS |
 | Browser screenshot / visual inspection | Headless Edge command was rejected by execution policy (`blocked by policy`); no screenshot or rendered-browser PASS claimed | NOT RUN |
-| Owner UAT | Follow checklist above; waiting for Owner results | PENDING |
+| Owner browser UAT | On 2026-11-17 the Owner confirmed the interface appeared in their browser and explicitly requested a TASK-001 PR. Other manual checklist steps were not individually reported; automated evidence remains as above | BROWSER CONFIRMED; PR AUTHORIZED |
 
 Smoke output:
 
@@ -121,6 +121,6 @@ Changed-file groups for review: root manifests/configs provide the workspace and
 
 ## Limits and rollback
 
-Owner UAT is **PENDING**. Real artwork, interactive actors/candles, TikTok, TTS, FPS, mobile/Studio capture and production deployment are **NOT RUN — outside TASK-001**. No OnlinePagoda source/build/test/runtime was operated on; its regression/LIVE behavior is not claimed as tested. Its four approved reference files were read remotely at the pinned commit only.
+The Owner confirmed browser display and authorized PR creation on **2026-11-17**. This is Owner-provided browser evidence, not an automated screenshot or a claim that every manual checklist step was performed. Remaining review is with the Solution Architect; merge is controlled by the Owner. Real artwork, interactive actors/candles, TikTok, TTS, FPS, mobile/Studio capture and production deployment are **NOT RUN — outside TASK-001**. No OnlinePagoda source/build/test/runtime was operated on; its regression/LIVE behavior is not claimed as tested. Its four approved reference files were read remotely at the pinned commit only.
 
 Rollback: stop only the OnlineChurch DEMO terminal with Ctrl+C. No persisted application data needs migration. If reverting code is later authorized, revert only the OnlineChurch implementation commits; preserve Design/Task and other applications. No PR, push, merge or production release is performed without the Owner's workflow authorization.
