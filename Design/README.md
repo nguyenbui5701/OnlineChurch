@@ -2,7 +2,7 @@
 
 > **OWNER DECISION — 2026-11-17:** D-01 **APPROVED**: this standalone `nguyenbui5701/OnlineChurch` repository with independent runtime, selectively adapting OnlinePagoda technology. D-04 **APPROVED**: Catholic (Công giáo) identity. The repository has been initialized; Design migration is in the SA draft PR. Remaining interactions, visuals, rollout and full Design sign-off are pending. See `08_DECISION_LOG.md`.
 
-**Status:** TASK-001 merged and closed; Concept 03 Batch A underway with Visual AI; next technical task prepares the offline renderer foundation; final assets and LIVE remain gated | **Date:** 2026-11-17
+**Status:** TASK-001/002 merged; Visual Batch A R1 accepted as REVIEW baseline (not production); TASK-003 actor/seat DEMO and Visual Batch C in fast track; LIVE remains gated | **Date:** 2026-11-17
 
 ## Purpose and boundary
 Design a separate interactive **Nhà thờ Online Công giáo** experience for TikTok LIVE on Windows, using `OnlinePagoda` as the **audited technical reference**, not as a theological or visual template. Never modify or restart the existing pagoda LIVE installation in order to test the church project.
@@ -37,6 +37,8 @@ Design a separate interactive **Nhà thờ Online Công giáo** experience for T
 14. [14_OWNER_EXECUTED_TEST_POLICY.md](14_OWNER_EXECUTED_TEST_POLICY.md) — Owner/Developer/SA test delegation and evidence
 15. [15_TASK001_CLOSEOUT.md](15_TASK001_CLOSEOUT.md) — verified merge, evidence and task closeout
 16. [16_VISUAL_REVIEW_REPO_WORKFLOW.md](16_VISUAL_REVIEW_REPO_WORKFLOW.md) — permanent GitHub VisualReview branch, artifact and PR workflow
+17. [17_TASK002_CLOSEOUT.md](17_TASK002_CLOSEOUT.md) — PR #7 merge and Owner UAT evidence
+18. [18_FASTTRACK_ROADMAP_AND_VISUAL_BATCH_C.md](18_FASTTRACK_ROADMAP_AND_VISUAL_BATCH_C.md) — fast-track actors, masks, FX, control, soak and Visual sprites
 
 ## Phase plan — approved sequencing; each implementation task needs separate review
 - **G0:** Standalone Catholic repo and recommended MVP 2.5D + side Marian image + free commands + neutral gifts/voice adopted as implementation baseline through Owner's 'tiếp tục' (2026-11-17). Precise final art and actual simultaneous LIVE setup are not pre-approved.
@@ -69,3 +71,8 @@ This is an independently authored interactive artwork, **not a real parish/churc
 ## Persistent Visual Asset Review workspace
 - Owner has authorized the Visual AI to **push review artifacts** to the `VisualReview/<Concept>/<Batch>/` folder **only on a dedicated `visual/<concept>-<batch>-review` branch**; it must not modify `main` or add unapproved art to application `assets/`.
 - See `Design/16_VISUAL_REVIEW_REPO_WORKFLOW.md` and `VisualReview/README.md`. For the ongoing assignment, use `VisualReview/Concept03/Batch-A/` on `visual/concept03-batch-a-review`. The SA can review a **Draft PR + raw GitHub preview links**, with no chat upload when the files are accessible. Later batches repeat this workflow.
+
+## Current immediate work
+- TASK-002 PR #7 merged; completed Task removed from active queue. [TASK-003](../Task/TASK-003-VISITOR-ACTOR-STATE-AND-SEATING-DEMO.md) is prepared for **Owner merge review** on SA branch, not yet developer-authorized until this PR merges.
+- Visual PR #6 R1 commit `c2b71b4` reviewed by SA; accepted for next review/Batch C but **not production**. Keep its review PR Draft, never merge VisualReview contents automatically.
+- AI Visual should start [Batch C sprite brief](18_FASTTRACK_ROADMAP_AND_VISUAL_BATCH_C.md) on independent VisualReview branch; concurrent AI Code only edits Task-003 allowed source. No LIVE.

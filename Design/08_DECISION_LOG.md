@@ -51,3 +51,9 @@ For later major changes, create dated decision amendments; do not retroactively 
 
 ## D-14 — Visual review artifact delivery (Owner, 2026-11-17)
 Owner authorizes separate Visual AI to push images and manifest to a **GitHub review folder and branch**, so SA can review by PR link instead of requiring repeated chat uploads. Scope: `VisualReview/<Concept>/<Batch>/**` on `visual/<concept>-<batch>-review` branches only. Draft PRs are review containers **not to be merged into main**, until an explicit later Owner/SA asset-integration Task authorizes selected originals. Current destination `VisualReview/Concept03/Batch-A/`. Repeats for future batches. See `16_VISUAL_REVIEW_REPO_WORKFLOW.md`; tool-access failures must be reported and Owner may perform local push.
+
+## D-15 — Accelerated delivery, 2026-11-17
+- Owner explicitly directs speed toward actual **walking visitor sprites, detailed sit/kneel animations, parallax, complex motion masks, premium neutral gift FX, full dashboard and prolonged load tests**. Production TikTok LIVE remains **BLOCKED** until all high-priority modules and QA/rehearsal pass.
+- TASK-002 PR #7 **verified merged** at `caac0f299efea15454d3b0241dda871fa26420d9`; Owner reported B07/B08/B11 PASS, Developer reported 176 unit tests PASS; see `17_TASK002_CLOSEOUT.md`.
+- Visual PR #6 **Batch A R1** reviewed at `c2b71b4b4ae04c00a594eb9179054289b817c4fd`: accepted as **review reference** to unblock future work, NOT production imagery. Floor seam, religious depictions, rights and final transformed masks remain HOLD. Visual AI may start Batch C on separate Draft PR.
+- Issue `TASK-003` as focused actor/seat/walk/sit/kneel synthetic DEMO; future free PRAY/LIGHT_CANDLE, Batch B/C production art integration and other components remain separate gates. Schedule and dependencies: `18_FASTTRACK_ROADMAP_AND_VISUAL_BATCH_C.md`.
