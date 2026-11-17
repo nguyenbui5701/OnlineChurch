@@ -1,4 +1,47 @@
-# TASK-001 technical provenance
+# TASK-002 technical provenance
+
+Baseline: OnlineChurch `5618bc5741f04920990a54d5df97f4fa53cc4e19`.
+TASK-002 reuses this repository's merged TASK-001 workspace, server and tests. No additional OnlinePagoda source files were read or copied in this task. No image, video, audio, Concept 03 preview/technical overlay or user-supplied artwork was copied or integrated.
+
+All visible placeholder primitives are newly authored code in `apps/overlay/src/scene.ts`. Synthetic polygons in `layout.ts` are original diagnostic coordinates labelled `SYNTHETIC_DEMO_ONLY`; they are not the proposed Concept 03 coordinates or final sacred masks. The future inventory in Design/visual was read as planning material only. No copyright or Catholic depiction approval is inferred from that inventory.
+
+## New dependency footprint and actual license metadata
+
+Exact direct dependency: **pixi.js 8.23.0 (MIT)**, pinned in `apps/overlay/package.json` and lockfile. Existing esbuild bundles it locally; no Vite server, new runtime service/port, CDN, Playwright/browser dependency, image loader calls or external font was added. The workspace package @onlinechurch/overlay is first-party/private. PixiJS uses WebGL/canvas APIs provided by the Owner's browser; no Node renderer or GPU rendering capability is claimed from unit tests.
+
+Installed production dependency metadata checked on 2026-11-17:
+
+| Added package | Version | Declared license |
+| --- | --- | --- |
+| pixi.js | 8.23.0 | MIT |
+| @types/earcut | 3.0.0 | MIT |
+| @webgpu/types | 0.1.74 | BSD-3-Clause |
+| @xmldom/xmldom | 0.8.15 | MIT |
+| colord | 2.13.0 | MIT |
+| earcut | 3.2.4 | ISC |
+| eventemitter3 | 5.0.4 | MIT |
+| gifuct-js | 2.1.2 | MIT |
+| ismobilejs | 1.1.1 | MIT |
+| js-binary-schema-parser | 2.0.3 | MIT |
+| parse-svg-path | 0.2.0 | MIT |
+| tiny-lru | 11.4.7 | BSD-3-Clause |
+
+These transitive packages are in PixiJS's installed tree; this does not mean every parser/loader is used by the application. Runtime application code loads no SVG/GIF/image assets. The build collects actual installed license/copyright/notice files for package inputs seen by esbuild and emits `overlay/THIRD_PARTY_LICENSES.txt`; missing notices fail the build. Generated notices are served locally and referenced in the JS banner. Zod's MIT notice remains embedded in the server bundle. Installed-only type dependencies are not browser code. Runtime Zod remains 4.6.7/MIT. Existing dev toolchain versions/licenses are unchanged from TASK-001 below.
+
+`npm.cmd install` after final PixiJS pin reported audited 61 packages and **0 vulnerabilities**. This is a registry result at installation time. Initial checks of 8.23.0 and 8.14.0 reproduced the same upstream declaration incompatibility with exactOptionalPropertyTypes. The final pin is 8.23.0; no dependency source patch was applied. The two required typecheck passes and their precise declaration-checking exception are documented in DEVELOPMENT.md. SA must assess that compatibility tradeoff; no claim of full exact-optional checking of PixiJS declarations is made.
+
+## API/source references
+
+- [PixiJS Application documentation](https://pixijs.com/8.x/guides/components/application): async initialization and owned Application lifecycle. Actual installed implementations/types were also read before integration.
+- [PixiJS ticker plugin](https://pixijs.com/8.x/guides/components/application/ticker-plugin): autoStart=false, private ticker; this static preview renders only after mount, resize or guide toggling.
+- Installed `pixi.js/lib/unsafe-eval/init.mjs`: verifies the special entry point supplies non-eval implementations for strict CSP. Despite its name, it does not grant CSP unsafe-eval permission. Graphics/text registrations, renderer init and destroy implementations were inspected locally.
+- TASK-002 Task/Design sources specify layout slots, provisional UI safe bands, primitive-only visuals, no art integration and deny-by-default until later reviewed masks. Their content is unchanged by this implementation.
+
+Next dependency: **Owner-approved Visual Batch A/B → future TASK-002B**, including approved art provenance/license/hashes and final geometry. This scaffold does not clear those gates or introduce live platform policy assumptions.
+
+---
+
+# Historical TASK-001 technical provenance
 
 Implementation baseline: OnlineChurch `f241a76774b5f786709d0915df01a5614af6603f`.
 Reference: [OnlinePagoda at ee55ee81e507135b805d116586f5814eed9a89a9](https://github.com/nguyenbui5701/OnlinePagoda/tree/ee55ee81e507135b805d116586f5814eed9a89a9).
