@@ -62,3 +62,5 @@ This is an independently authored interactive artwork, **not a real parish/churc
 
 - Owner's selected artwork direction: [Concept 03 SA visual review](13_CONCEPT03_SA_VISUAL_REVIEW.md); selected preview is **not** a completed transparent 2.5D asset set.
 - Testing assignment: [Owner-executed QA policy](14_OWNER_EXECUTED_TEST_POLICY.md); no test may be silently skipped or declared PASS without real output.
+
+- New [TASK-002 Offline 2.5D Renderer Foundation](../Task/TASK-002-OFFLINE-2P5D-RENDERER-FOUNDATION.md) uses synthetic geometry only; Developer starts **after Owner merges this SA Task PR**. Real Concept 03 Batch A/B will be integrated later under a separate Task after approval.

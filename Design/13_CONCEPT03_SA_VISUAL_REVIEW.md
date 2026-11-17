@@ -1,6 +1,6 @@
 # 13 — Concept 03 SA Visual Review and Production Gate
 
-**Date:** 2026-11-17 | **Status:** **SELECTED ART DIRECTION / PRODUCTION ASSETS HOLD**
+**Date:** 2026-11-17 | **Status:** **SELECTED ART DIRECTION / PRODUCTION ASSETS HOLD** (TASK-002 synthetic renderer work may run in parallel; real images stay held)
 **Owner selection:** Concept **03 — Romanesque Golden-Ivory Nave** (third painterly illustration, not the older vector layout `concept_C_1080x1920.png`).
 **SA decision:** **ACCEPT for visual architecture and 2.5D planning**; **NOT ACCEPT as ready-to-integrate layered art, polygon/masks or approved Catholic depiction**. Do not send this preview to AI Code as a production sprite.
 
@@ -31,7 +31,7 @@
 - **Batch B:** Marian imagery and relocated side votive stand, candle lit/unlit and flame. Pause for explicit Owner Catholic depiction acceptance.
 - **Batch C:** fictional visitor sprite atlas walk/stand/sit/kneel, multiple views and animation/pivot metadata. No clergy.
 - **Batch D:** ambient light and muted non-sacred floral gift effects plus quiet-mode variant.
-- **Gate to AI Code:** SA/Owner approve manifest with provenance, license, SHA256, geometry and visually reviewed composite. Separate `Task/TASK-002-...` required before integration. `manifest_CONCEPT03_PROPOSAL.csv` is a **proposal**, not proof that any listed asset has been produced.
+- **Gate to AI Code:** SA/Owner approve manifest with provenance, license, SHA256, geometry and visually reviewed composite. Separate **TASK-002B** and specific Owner/SA asset approval required before **real image integration**. TASK-002 is an independent offline renderer foundation containing synthetic debug shapes only and must not consume any unapproved Concept 03 art. `manifest_CONCEPT03_PROPOSAL.csv` is a **proposal**, not proof that any listed asset has been produced.
 
 ## Technical validation for integration
 - All screens, layers and mask coordinate systems register on 1080×1920.

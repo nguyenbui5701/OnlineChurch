@@ -42,3 +42,5 @@ Each AI task receives only its exact Task, required Design files and source path
 - Tests: Owner may run designated full verification instead of having AI Code repeat every command, but failures must return to Developer. See `14_OWNER_EXECUTED_TEST_POLICY.md`.
 
 - **After PR #2 and #3 merge:** TASK-002 is restricted to renderer scaffolding and synthetic geometry. The later asset integration is separately authorized as TASK-002B after Visual Batch A/B review. No silent change of TASK-003 ChurchEngine scope.
+
+- TASK-002 was prepared on SA branch `sa/task002-renderer-foundation` **for Owner merge review**. Its strict scope is static offline PixiJS scaffolding with abstract mock shapes and fail-closed protected geometry. Visual Agent Batch A independently proceeds. A separate TASK-002B integrates vetted real PNG/geometry after SA+Owner visual approval; no approved artwork is claimed by TASK-002.
