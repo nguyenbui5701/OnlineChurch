@@ -100,11 +100,13 @@ AI_CODE ran on Windows PowerShell with Node v24.16.0 / npm 11.13.0 on 2026-11-17
 | B09 | AI_CODE static scan: original primitives only; no runtime media/profile/TikTok/TTS/gift ingestion or external requests; SA review pending | AI_CODE PASS / SA NOT RUN |
 | B10 | AI_CODE allowlist/protected-file/generated-file checks; no OnlinePagoda writes/runtime control; SA review pending | AI_CODE PASS / SA NOT RUN |
 | B11 | OWNER_WINDOWS manual Ctrl+C/release for this task not yet reported; automated owned-child teardown passes | NOT RUN — blocks manual acceptance |
-| B12 | OWNER sign-off/explicit TASK-002 PR order not yet received | NOT RUN — PR remains gated |
+| B12 | OWNER replied “ok, hãy tạo PR cho task 002 và note thông tin” after the implementation/UAT handoff on 2026-11-17 | PR AUTHORIZED — individual manual gate results not supplied |
 
 Full test output: `Test Files 7 passed (7)`, `Tests 176 passed (176)`, duration 5.05s. Build output sizes: server 769521 bytes, index 1156, JS 1054282, CSS 1353, license notices 10586. Sizes are evidence for this build, not a performance benchmark. Smoke port 54688 exited/released successfully. HTTP delivery and the Node Pixi scene-tree unit test **do not prove visible WebGL rendering**. No browser automation was attempted for TASK-002; Owner execution is assigned by the Task, and the earlier task's automated browser command was unavailable due execution policy.
 
-## Owner browser UAT — still required
+## Owner acknowledgment and manual UAT evidence
+
+On 2026-11-17 the Owner acknowledged the handoff with “ok” and explicitly requested TASK-002 PR creation. This authorizes push and PR creation for SA review; it is not independent evidence of each browser/resize/console/Ctrl+C test. B07, B08 and B11 retain their unverified status pending specific Owner results. Do not translate the acknowledgment into an AI-executed or fully itemized UAT PASS. The checklist remains available below for remaining evidence.
 
 1. Use the correct feature branch/head and commands above. Open `/` first and follow **Mở canvas DEMO 2.5D**, or open `/overlay/` directly. Do not judge an old TASK-001 server still running from another terminal.
 2. Confirm an actual canvas with warm abstract arches, static central placeholder, floor/pew rectangles, red protected-debug polygon and navigation/FX guides. No production scene/characters/candles should appear. The loading message should disappear; a WebGL error message means FAIL, not PASS.
@@ -114,7 +116,7 @@ Full test output: `Test Files 7 passed (7)`, `Tests 176 passed (176)`, duration 
 6. Check `/health` and `/api/demo/state` still show DEMO and empty state. Stop only this OnlineChurch terminal with Ctrl+C, then confirm its port is released (or relaunch succeeds). Do not stop/restart OnlinePagoda to test this.
 7. Return branch/head, test totals (if run), browser PASS/FAIL, resize PASS/FAIL, Ctrl+C PASS/FAIL, or the failing command plus last 20–40 lines. Do not send credentials or full dependency logs.
 
-No automatic push/PR/merge/deployment is performed for TASK-002. After Owner UAT and an explicit PR order, prepare one PR against main with results attributed to the actual executor. Rollback is limited to stopping OnlineChurch and, when authorized, reverting only this implementation. The next visual dependency is **Owner-approved Visual Batch A/B → future TASK-002B**. TASK-003 actions, final sacred masks, artwork, audio, Studio capture, FPS benchmarks and LIVE remain separate work.
+Owner has authorized push and one TASK-002 PR against main. Report results by actual executor and retain the unresolved manual evidence for SA review; no merge or deployment is authorized. Rollback is limited to stopping OnlineChurch and, when authorized, reverting only this implementation. The next visual dependency is **Owner-approved Visual Batch A/B → future TASK-002B**. TASK-003 actions, final sacred masks, artwork, audio, Studio capture, FPS benchmarks and LIVE remain separate work.
 
 ---
 
